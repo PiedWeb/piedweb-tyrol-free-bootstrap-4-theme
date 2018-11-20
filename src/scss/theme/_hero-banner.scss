@@ -1,0 +1,43 @@
+.fullscreen {
+    height:100vh;
+}
+
+.hero-banner {
+    &, h1, a:not(.btn-header-light):not(:hover):not(.btn-header) {
+        color: white;
+    }
+
+}
+.navbar{
+	//background-color: rgba(0,0,0,.5);//background-color:transparent;
+	@include media-breakpoint-down(md) {
+		 background-color: rgba(0,0,0,.5);
+	}
+}
+
+.nostick {
+		 background-color: rgba(0,0,0,.5);
+}
+
+.navbar-brand {
+    width: 100px;
+    height: 50px;
+    background-image: url('../img/logo.png');
+    background-repeat: no-repeat;
+    background-size:90%;
+    text-indent: -9999em;
+}
+
+
+
+.navbar-nav{
+	a, span {
+		text-transform:uppercase;
+		font-weight:600;
+		color:$white;
+		padding: 0 20px;
+	}
+    a:hover, .current, .nav-link.disabled {
+         color: rgba(250,250,250, 0.7);
+    }
+}

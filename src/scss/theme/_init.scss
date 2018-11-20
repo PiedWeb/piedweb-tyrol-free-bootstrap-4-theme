@@ -1,0 +1,26 @@
+// Helpers
+.letter-spacing {
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    cursor: pointer;
+}
+
+.section-gap {
+	padding: 100px 0;
+}
+
+.section-light {
+	background-color:$light;
+}
+
+.mimg img {
+max-width: 100%;
+    padding: 10px 0;
+}

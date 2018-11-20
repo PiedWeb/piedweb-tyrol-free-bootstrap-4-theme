@@ -1,0 +1,38 @@
+$primary-font	: $font-family-base;
+
+$primary	      : #1fa67a;
+$light-primary    : #e8f5e9;
+$dark-primary     : #1a8d67;
+$secondary        : #FFC107;
+
+$footer-background-color : #222;
+$slider-img-height: 300px;
+
+$white			: #fff;
+
+@mixin transition($color) {
+
+}
+$gradientDtB: linear-gradient($primary, $primary, darken($primary, 10%));
+$gradientBtD: linear-gradient($primary, $primary, darken($primary, 10%));
+
+
+// Bootstrap Variables
+
+$font-family-base: $primary-font;
+$body-color: #777777;
+$font-weight-base: 300;
+$line-height-base: 1.625;
+
+$btn-padding-y: 0;
+$btn-padding-x: 40px;
+$btn-line-height: 40px;
+$btn-border-radius: 20px;
+$btn-font-size: .8em; // Marchera à la prochaine MàJ de bootstrap en attendant :
+.btn {font-size: .8em !important; color:#fff;}
+
+$headings-color	: #222222;
+
+// http://typecast.com/images/uploads/modernscale.css
+
+// End boostrap variable
