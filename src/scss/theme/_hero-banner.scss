@@ -3,11 +3,18 @@
 }
 
 .hero-banner {
+
     &, h1, a:not(.btn-header-light):not(:hover):not(.btn-header) {
         color: white;
     }
 
+    .cover-banner {
+        background-size: cover;
+        background: $primary linear-gradient(180deg, mix($body-color, $primary, 15%), $primary) repeat-x;
+    }
+
 }
+
 .navbar{
 	//background-color: rgba(0,0,0,.5);//background-color:transparent;
 	@include media-breakpoint-down(md) {
