@@ -1,6 +1,6 @@
 {
   "name": "piedweb-tyrol-free-bootstrap-4-theme",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Free Bootstrap 4 theme UltraLight (without jQuery)",
   "author": "Robin D. <contact@piedweb.com>",
   "license": "MIT",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PiedWeb/piedweb-devoluix-theme.git"
+    "url": "git+https://github.com/PiedWeb/piedweb-tyrol-free-bootstrap-4-theme.git"
   },
   "keywords": [
     "bootstrap",
@@ -20,7 +20,7 @@
     "native"
   ],
   "bugs": {
-    "url": "https://github.com/PiedWeb/piedweb-devoluix-theme/issues"
+    "url": "https://github.com/PiedWeb/piedweb-tyrol-free-bootstrap-4-theme/issues"
   },
   "homepage": "https://piedweb.com",
   "dependencies": {
