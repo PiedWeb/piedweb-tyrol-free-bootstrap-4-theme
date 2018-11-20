@@ -53,13 +53,12 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function applyOnDomLoaded() {
-  if (!("fetch" in window)) fullHeight(".fullscreen");
   allClickable(".clickable");
-  applySmoothScroll();
   imgLazyLoad();
   readableEmail(".cea");
   backgroundLazyLoad();
   convertInLinks();
+  applySmoothScroll();
   baguetteBox.run(".mimg", {
     captions: function(element) {
       return element.getElementsByTagName("img")[0].alt;

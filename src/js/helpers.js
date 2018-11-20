@@ -259,9 +259,9 @@ export function wideImgCentered(selector) {
  * smoothScroll(element)        Add a smooth effect during the scroll
  * Not working with IE but not worst than https://bundlephobia.com/result?p=smooth-scroll@15.0.0 ?
  *
- * @param {Object}  element
+ * @param {Object}  link
  */
-export function smoothScroll(element) {
+export function smoothScroll(link) {
   if (
     location.pathname.replace(/^\//, "") == link.pathname.replace(/^\//, "") &&
     location.hostname == link.hostname &&
@@ -278,17 +278,6 @@ export function smoothScroll(element) {
         left: 0,
         top: target.offsetTop
       });
-
-      // Adjust focus
-      if (target.offsetTop === 0) {
-        document.body.focus();
-      }
-      target.focus();
-      if (document.activeElement !== target) {
-        target.setAttribute("tabindex", "-1");
-        target.focus();
-        target.style.outline = "none";
-      }
     }
   }
 }
@@ -298,7 +287,8 @@ export function smoothScroll(element) {
  */
 export function applySmoothScroll() {
   document.querySelectorAll('[href*="#"]').forEach(function(item) {
-    item.addEventListener("click", function() {
+    item.addEventListener("click", function(event) {
+        event.preventDefault();
       smoothScroll(item);
     });
   });
