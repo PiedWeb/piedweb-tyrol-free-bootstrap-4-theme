@@ -261,7 +261,7 @@ export function wideImgCentered(selector) {
  *
  * @param {Object}  link
  */
-export function smoothScroll(link) {
+export function smoothScroll(link, event = null) {
   if (
     location.pathname.replace(/^\//, "") == link.pathname.replace(/^\//, "") &&
     location.hostname == link.hostname &&
@@ -273,6 +273,7 @@ export function smoothScroll(link) {
         ? target
         : document.querySelector("[name=" + link.hash.slice(1) + "]");
     if (target !== null) {
+      if (event !== null) event.preventDefault();
       window.scrollTo({
         behavior: "smooth",
         left: 0,
@@ -288,8 +289,7 @@ export function smoothScroll(link) {
 export function applySmoothScroll() {
   document.querySelectorAll('[href*="#"]').forEach(function(item) {
     item.addEventListener("click", function(event) {
-        event.preventDefault();
-      smoothScroll(item);
+      smoothScroll(item, event);
     });
   });
 }
