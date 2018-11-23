@@ -4,7 +4,7 @@
 
 .hero-banner {
 
-    &, h1, a:not(.btn-header-light):not(:hover):not(.btn-header) {
+    &, h1, a:not(.btn):not(:hover) {
         color: white;
     }
 
@@ -36,6 +36,12 @@
 }
 
 
+.tunnel-header{
+	width: 100% !important;
+    background-color: rgba(0,0,0,.5);
+    text-align: center;
+    padding-top:5px;
+}
 
 .navbar-nav{
 	a, span {
