@@ -15,11 +15,6 @@ import baguetteBox from "baguettebox.js";
 var bsn = require("bootstrap.native/dist/bootstrap-native-v4");
 
 import {
-  convertImgLinkToResponsiveImgLink,
-  responsiveImage
-} from "./helpers-pwcms.js";
-
-import {
   imgLazyLoad,
   backgroundLazyLoad,
   convertInLinks,
