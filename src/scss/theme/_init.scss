@@ -19,3 +19,14 @@
 .section-light {
 	background-color:$light;
 }
+
+.a {
+  cursor:pointer;
+  color: $link-color;
+  text-decoration: $link-decoration;
+}
+
+.a:hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+}
