@@ -3,6 +3,7 @@
  * - imgLazyLoad(attribute)              Simple Image Lazy Loader
  * - backgroundLazyLoad(attribute, ...)  Add background to element wich have `attribute` (default data-bg)
  * - convertInLinks(attribute)           Convert elements wich contain attribute in normal link (a href)
+ * - decodeToLink(attribute)             Convert elements wich contain attribute in rot13 in normal link (a href)
  * - convertInLinksFromRot13(attribute)  Convert elements wich contain attribute encoded in rot13 in normal link (a href)
  * - clickable(element)                  transform an element containing a link (a href) in a clickable element
  * - allClickable(selector)              transform all selected element in clickable element
@@ -160,6 +161,7 @@ export function convertInLinks(attribute = "data-href") {
 
 /**
  * Convert elements wich contain attribute encoded in rot13 in normal link (a href)
+ * first character can be a shortcut for http:// (-), https:// (_), mailto: (@)
  * Except for old Browser (like google bot)
  *
  * @param {string}  attribute
@@ -181,9 +183,21 @@ export function convertInLinksFromRot13(attribute = "data-rot") {
         );
       }
       link.textContent = element.textContent;
-      link.setAttribute("href", rot13ToText(href));
+      link.setAttribute("href", convertShortchutForLink(rot13ToText(href)));
       element.outerHTML = link.outerHTML;
     });
+  }
+}
+
+export function convertShortchutForLink(str) {
+  if (str.charAt(0) == "-") {
+    return str.replace("-", "http://");
+  }
+  if (str.charAt(0) == "_") {
+    return str.replace("_", "https://");
+  }
+  if (str.charAt(0) == "@") {
+    return str.replace("@", "mailto:");
   }
 }
 
