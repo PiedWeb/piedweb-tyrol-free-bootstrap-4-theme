@@ -1,6 +1,6 @@
 {
   "name": "piedweb-tyrol-free-bootstrap-4-theme",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Free Bootstrap 4 theme UltraLight (without jQuery)",
   "author": "Robin D. <contact@piedweb.com>",
   "license": "MIT",
@@ -25,7 +25,7 @@
   "homepage": "https://piedweb.com",
   "dependencies": {
     "baguettebox.js": "^1.11.0",
-    "bootstrap": "^4.1.3",
+    "bootstrap": "^4.2.1",
     "bootstrap-cookie-consent": "^0.0.6",
     "bootstrap.native": "^2.0.24",
     "font-awesome": "^4.7"

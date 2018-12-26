@@ -1,6 +1,6 @@
 
 <p align="center"><a href="https://piedweb.com">
-<img src="https://raw.githubusercontent.com/PiedWeb/piedweb-devoluix-theme/master/src/img/logo_title.png" width="200" height="200" alt="theme devoluix bootstrap 4" />
+<img src="https://raw.githubusercontent.com/PiedWeb/piedweb-devoluix-theme/master/src/img/logo_title.png" width="200" height="200" alt="agence Pied Web en Vercors" />
 </a></p>
 
 # PiedWeb Bootstrap 4 theme without jQuery
