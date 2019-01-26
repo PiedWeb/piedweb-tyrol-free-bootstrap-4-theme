@@ -1,8 +1,9 @@
 .extra-footer {
+    color: color-yiq($footer-background-color);
     padding: 20px;
     background-color: $footer-background-color;
     a {
-        color: $body-color;
+        color: color-yiq($footer-background-color);
     }
 }
 
@@ -11,7 +12,7 @@
     padding-top: 80px;
     padding-bottom: 100px;
     background-color: $footer-background-color;
+    color: color-yiq($footer-background-color);
     text-align:center;
-    color: $body-color;
-    border-top:4px solid $body-color;
+    border-top:4px solid color-yiq($footer-background-color);
 }

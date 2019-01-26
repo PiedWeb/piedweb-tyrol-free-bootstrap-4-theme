@@ -5,6 +5,10 @@ $secondary        : #FFC107 !default;
 $white            : #fff !default;
 
 $footer-background-color: #222 !default;
+$navbar-bg: transparent !default;
+$navbar-bg-nostick: rgba(0,0,0,.5) !default; // or small
+
+$logo: url('../img/logo.png') ;
 
 // Bootstrap Variables
 $body-color: #777777 !default;
