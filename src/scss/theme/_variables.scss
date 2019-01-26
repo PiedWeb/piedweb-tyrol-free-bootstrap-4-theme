@@ -8,7 +8,7 @@ $footer-background-color: #222 !default;
 $navbar-bg: transparent !default;
 $navbar-bg-nostick: rgba(0,0,0,.5) !default; // or small
 
-$logo: url('../img/logo.png') ;
+$logo: url('../img/logo.png') !default;
 
 // Bootstrap Variables
 $body-color: #777777 !default;
