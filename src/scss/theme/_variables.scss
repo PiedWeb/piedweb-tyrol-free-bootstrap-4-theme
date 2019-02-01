@@ -5,8 +5,8 @@ $secondary        : #FFC107 !default;
 $white            : #fff !default;
 
 $footer-background-color: #222 !default;
-$navbar-bg: transparent !default;
-$navbar-bg-nostick: rgba(0,0,0,.5) !default; // or small
+$navbar-bg: rgba($dark-primary, .5) !default;
+$navbar-bg-nostick: $dark-primary !default; // or small
 
 $logo: url('../img/logo.png') !default;
 
