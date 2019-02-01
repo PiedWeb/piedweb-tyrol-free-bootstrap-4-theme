@@ -1,5 +1,6 @@
 /**
  * List of all functions
+ * - fixedNavBar()                       Add css class fixed-top to navbar
  * - imgLazyLoad(attribute)              Simple Image Lazy Loader
  * - backgroundLazyLoad(attribute, ...)  Add background to element wich have `attribute` (default data-bg)
  * - convertInLinks(attribute)           Convert elements wich contain attribute in normal link (a href)
@@ -25,6 +26,15 @@
  * @param {string}  overlay     attribute
  * @param {array}   darken      default : linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) )
  */
+
+export function fixedNavBar() {
+  var navbar = document.getElementById("navbar");
+
+  if (navbar && navbar.children[0]) {
+    navbar.children[0].classList.add("fixed-top");
+  }
+}
+
 export function backgroundLazyLoad(
   attribute = "data-bg",
   overlay = "data-darken",

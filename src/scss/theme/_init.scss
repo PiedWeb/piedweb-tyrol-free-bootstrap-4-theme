@@ -1,4 +1,7 @@
+// -------
 // Helpers
+// -------
+
 .letter-spacing {
   text-transform: uppercase;
   letter-spacing: .1rem;
@@ -13,11 +16,11 @@
 }
 
 .section-gap {
-	padding: 100px 0;
+    padding: 100px 0;
 }
 
 .section-light {
-	background-color:$light;
+    background-color:$light;
 }
 
 .a {
@@ -29,4 +32,15 @@
 .a:hover {
     color: $link-hover-color;
     text-decoration: $link-hover-decoration;
+}
+
+.text-link {
+    text-decoration: none;
+    color: $body-color;
+    cursor: auto;
+}
+
+// Remove white space for non-js client
+[data-img] {
+    display:none;
 }

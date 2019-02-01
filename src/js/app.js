@@ -15,6 +15,7 @@ import baguetteBox from "baguettebox.js";
 var bsn = require("bootstrap.native/dist/bootstrap-native-v4");
 
 import {
+  fixedNavBar,
   imgLazyLoad,
   backgroundLazyLoad,
   convertInLinks,
@@ -48,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function applyOnDomLoaded() {
+  fixedNavBar();
   allClickable(".clickable");
   imgLazyLoad();
   readableEmail(".cea");

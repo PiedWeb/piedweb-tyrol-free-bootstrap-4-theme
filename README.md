@@ -20,6 +20,9 @@ npm run build
 
 # Run the demo (or just open dist/index.html in your browser)
 npm run dev
+
+# Clean the code
+npm run prettier
 ```
 
 Variables
