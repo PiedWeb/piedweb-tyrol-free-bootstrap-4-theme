@@ -27,6 +27,9 @@
  * @param {array}   darken      default : linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) )
  */
 
+// todo: how to set responsiveImage optionnal ?
+import { responsiveImage } from "piedweb-cms-js-helpers/src/helpers.js";
+
 export function fixedNavBar() {
   var navbar = document.getElementById("navbar");
 

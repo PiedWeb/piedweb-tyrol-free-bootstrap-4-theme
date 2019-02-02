@@ -5008,6 +5008,11 @@ phin@^2.9.1:
   resolved "https://registry.yarnpkg.com/phin/-/phin-2.9.3.tgz#f9b6ac10a035636fb65dfc576aaaa17b8743125c"
   integrity sha512-CzFr90qM24ju5f88quFC/6qohjC144rehe5n6DH900lgXmUe86+xCKc10ev56gRKC4/BkHUoG4uSiQgBiIXwDA==
 
+piedweb-cms-js-helpers@^0:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/piedweb-cms-js-helpers/-/piedweb-cms-js-helpers-0.0.1.tgz#c6153f57b96776a53a56e23d04e618c4fce769ea"
+  integrity sha512-d4wC9ITWrsushjQ/3U3iLG0S2NKtWafbwIwRwCX0eyLrTqKxTVeF1a06aVgtTwkM/NdpfcYTjBh7zsnuB4qCnQ==
+
 pify@^2.0.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"

@@ -6,6 +6,7 @@
 /**
  * Import CSS
  */
+
 require("../scss/main.scss");
 
 import BootstrapCookieConsent from "bootstrap-cookie-consent";
