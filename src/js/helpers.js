@@ -19,13 +19,6 @@
  *
  */
 
-/**
- * backgroundLazyLoad() Add background to element wich have `attribute` (default data-bg)
- *
- * @param {string}  attribute
- * @param {string}  overlay     attribute
- * @param {array}   darken      default : linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) )
- */
 
 // todo: how to set responsiveImage optionnal ?
 import { responsiveImage } from "piedweb-cms-js-helpers/src/helpers.js";
@@ -38,9 +31,18 @@ export function fixedNavBar() {
   }
 }
 
+/**
+ * backgroundLazyLoad() Add background to element wich have `attribute` (default data-bg)
+ *
+ * @param {string}  attribute
+ * @param {string}  overlay     attribute containing one of value contained in darken or the css value
+ * @param {string}  position    attribute containing the css position else "no repeat center center fixed"
+ * @param {array}   darken      default : linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) )
+ */
 export function backgroundLazyLoad(
   attribute = "data-bg",
   overlay = "data-darken",
+  position = "data-pos",
   darken = {
     center: "radial-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) )",
     inverse:
@@ -60,17 +62,21 @@ export function backgroundLazyLoad(
         : bg_src) +
       "')";
 
-    if (block.getAttribute("data-darken")) {
-      if (darken[block.getAttribute("data-darken")] != undefined) {
-        bg_src = darken[block.getAttribute("data-darken")] + "," + bg_src;
+    if (block.getAttribute(overlay)) {
+      if (darken[block.getAttribute(overlay)] != undefined) {
+        bg_src = darken[block.getAttribute(overlay)] + "," + bg_src;
+      } else if (block.getAttribute(overlay) == 'true') {
+        bg_src = darken['default'] + "," + bg_src;
       } else {
-        bg_src =
-          "linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), " +
-          bg_src;
+        bg_src = block.getAttribute(overlay) + bg_src;
       }
-      block.removeAttribute("data-darken");
+      block.removeAttribute(overlay);
     }
-    bg_src = bg_src + " no-repeat center center fixed;background-size:cover";
+
+    console.log(block.getAttribute(position));
+    bg_src += " " + (block.getAttribute(position) ? block.getAttribute(position) : 'no-repeat center center fixed');
+    bg_src += ";background-size:cover";
+    block.removeAttribute(position);
     block.removeAttribute("data-bg");
     block.setAttribute("style", "background:" + bg_src);
   });
