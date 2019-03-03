@@ -346,9 +346,8 @@ export function rot13ToText(str) {
  * @param {string}  text
  */
 export function readableEmail(selector) {
-  let block = document.querySelector(selector);
-  if (block !== null) {
-    var mail = rot13ToText(block.textContent);
-    block.innerHTML = '<a href="mailto:' + mail + '">' + mail + "</a>";
-  }
+  document.querySelectorAll(selector).forEach(function(item) {
+    var mail = rot13ToText(item.textContent);
+    item.innerHTML = '<a href="mailto:' + mail + '">' + mail + "</a>";
+  });
 }
