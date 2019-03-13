@@ -218,6 +218,7 @@ export function convertShortchutForLink(str) {
   if (str.charAt(0) == "@") {
     return str.replace("@", "mailto:");
   }
+  return str;
 }
 
 /**
