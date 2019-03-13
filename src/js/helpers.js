@@ -73,7 +73,6 @@ export function backgroundLazyLoad(
       block.removeAttribute(overlay);
     }
 
-    console.log(block.getAttribute(position));
     bg_src += " " + (block.getAttribute(position) ? block.getAttribute(position) : 'no-repeat center center fixed');
     bg_src += ";background-size:cover";
     block.removeAttribute(position);
@@ -279,7 +278,6 @@ export function wideImgCentered(selector) {
     var container = img.parentNode;
     if (img.height > container.clientHeight) {
       var divide = img.height / container.clientHeight;
-      console.log(divide);
       if (divide >= 4) {
         img.style.transform = "translate(0%, -50%)";
       } else if (divide >= 2) {
