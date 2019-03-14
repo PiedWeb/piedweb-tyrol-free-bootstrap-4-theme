@@ -348,5 +348,8 @@ export function readableEmail(selector) {
   document.querySelectorAll(selector).forEach(function(item) {
     var mail = rot13ToText(item.textContent);
     item.innerHTML = '<a href="mailto:' + mail + '">' + mail + "</a>";
+    if (selector.charAt(0) == '.') {
+        item.classList.remove(selector.substring(1));
+    }
   });
 }
