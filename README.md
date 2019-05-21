@@ -13,16 +13,16 @@ It's the default theme for [Pied Web CMS](https://github.com/PiedWeb/CMS)
 
 ```bash
 # Install
-npm install piedweb-tyrol-free-bootstrap-4-theme
+yarn add piedweb-tyrol-free-bootstrap-4-theme
 
 # Build
-npm run build
+yarn build
 
 # Run the demo (or just open dist/index.html in your browser)
-npm run dev
+yarn dev
 
 # Clean the code
-npm run prettier
+yarn prettier
 ```
 
 Variables
