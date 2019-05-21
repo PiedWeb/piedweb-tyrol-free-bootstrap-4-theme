@@ -25,9 +25,9 @@
   "homepage": "https://dev.piedweb.com",
   "dependencies": {
     "baguettebox.js": "^1.11.0",
-    "bootstrap": "^4.2.1",
-    "bootstrap-cookie-consent": "^0.0",
-    "bootstrap.native": "^2.0.24",
+    "bootstrap": "^4.3",
+    "bootstrap-cookie-consent": "^0.0.6",
+    "bootstrap.native": "^2.0",
     "font-awesome": "^4.7",
     "piedweb-cms-js-helpers": "^0"
   },

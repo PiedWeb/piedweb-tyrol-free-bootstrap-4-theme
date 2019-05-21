@@ -36,8 +36,8 @@ const config = {
                             sourceMap: true,
                             plugins: function() {
                                 return [
-                                    require('postcss-flexbugs-fixes'),
-                                    require('autoprefixer')
+                                    //require('postcss-flexbugs-fixes'),
+                                    //require('autoprefixer')
                                 ];
                             }
                         }
