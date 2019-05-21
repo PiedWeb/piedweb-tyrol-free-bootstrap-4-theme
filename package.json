@@ -1,6 +1,6 @@
 {
   "name": "piedweb-tyrol-free-bootstrap-4-theme",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "Free Bootstrap 4 theme UltraLight (without jQuery)",
   "author": "Robin D. <contact@piedweb.com>",
   "license": "MIT",
@@ -36,7 +36,7 @@
     "@babel/preset-env": "^7.4.0",
     "autoprefixer": "^9.5.1",
     "babel-loader": "^8.0",
-    "babel-plugin-root-import": "^6.1.0",
+    "babel-plugin-root-import": "^6.2",
     "clean-webpack-plugin": "^2.0",
     "copy-webpack-plugin": "^5.0",
     "css-loader": "^2.1",
@@ -45,16 +45,15 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "0.6",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.12",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0",
-    "register-service-worker": "^1.5.2",
     "sass-loader": "^7.0.1",
     "style-loader": "^0.23",
     "url-loader": "^1.1.2",
-    "webpack": "^4.20",
-    "webpack-cli": "^3.0",
-    "webpack-dev-server": "^3.1",
+    "webpack": "^4.32",
+    "webpack-cli": "^3.3",
+    "webpack-dev-server": "^3.4",
     "webpack-pwa-manifest": "^4.0"
   }
 }

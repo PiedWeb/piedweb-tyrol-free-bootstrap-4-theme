@@ -1059,7 +1059,7 @@ babel-loader@^8.0:
     mkdirp "^0.5.1"
     pify "^4.0.1"
 
-babel-plugin-root-import@^6.1.0:
+babel-plugin-root-import@^6.2:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-root-import/-/babel-plugin-root-import-6.2.0.tgz#5a5cbcefbd67506738679ed6f899c013142bcd49"
   integrity sha512-Tsq1pfSRn2XkNOrMXOYoTAxYddvWC21850h8Cj6xozccwr50WQu+GrzrHmr9RAmHCaLVUOfFYe3cshpQbDmf4w==
@@ -1186,10 +1186,10 @@ boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
-bootstrap-cookie-consent@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/bootstrap-cookie-consent/-/bootstrap-cookie-consent-0.0.6.tgz#5102f77c8f5be99574b44cb3832b5d26f2c6f557"
-  integrity sha512-mLTApnC2BLjFOc4nZ7nBi3JZ9rb5NHmVTMxs1tjiGwulPh8j4m0h8TeMFYFaz6NlaRn+ksiiBQ0cwYU5DmtaSw==
+bootstrap-cookie-consent@^0.0:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/bootstrap-cookie-consent/-/bootstrap-cookie-consent-0.0.7.tgz#690b8b0d2f6e695e837904b9f1b45e6a2970af4e"
+  integrity sha512-btsHgB8n1hsV0zD4sUoS202HanuQQk54SylD5FCN1csd7NiYJUbbrcZDMdDYX5XQDcvz0fxjgvc0x1B1Pma87A==
 
 bootstrap.native@^2.0.24:
   version "2.0.26"
@@ -4353,7 +4353,7 @@ node-rest-client@^1.5.1:
     debug "~2.2.0"
     xml2js ">=0.2.4"
 
-node-sass@^4.9.0:
+node-sass@^4.12:
   version "4.12.0"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.12.0.tgz#0914f531932380114a30cc5fa4fa63233a25f017"
   integrity sha512-A1Iv4oN+Iel6EPv77/HddXErL2a+gZ4uBeZUy+a8O35CFYTXhgA8MgLCWBtwpGZdCvTvQ9d+bQxX/QC36GDPpQ==
@@ -5302,11 +5302,6 @@ regexpu-core@^4.5.4:
     regjsparser "^0.6.0"
     unicode-match-property-ecmascript "^1.0.4"
     unicode-match-property-value-ecmascript "^1.1.0"
-
-register-service-worker@^1.5.2:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/register-service-worker/-/register-service-worker-1.6.2.tgz#9297e54c205c371c6e49bfa88f6997e8dd315f4c"
-  integrity sha512-I8L87fX2TK29LDx+wgyOUh2BJ3rDIRC1FtRZEHeP3rivzDv6p1DDZLGGtPucqjEkm45+2crtFIFssEWv56+9Wg==
 
 regjsgen@^0.5.0:
   version "0.5.0"
@@ -6515,7 +6510,7 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-webpack-cli@^3.0:
+webpack-cli@^3.3:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-3.3.2.tgz#aed2437b0db0a7faa2ad28484e166a5360014a91"
   integrity sha512-FLkobnaJJ+03j5eplxlI0TUxhGCOdfewspIGuvDVtpOlrAuKMFC57K42Ukxqs1tn8947/PM6tP95gQc0DCzRYA==
@@ -6542,7 +6537,7 @@ webpack-dev-middleware@^3.7.0:
     range-parser "^1.2.1"
     webpack-log "^2.0.0"
 
-webpack-dev-server@^3.1:
+webpack-dev-server@^3.4:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-3.4.1.tgz#a5fd8dec95dec410098e7d9a037ff9405395d51a"
   integrity sha512-CRqZQX2ryMtrg0r3TXQPpNh76eM1HD3Wmu6zDBxIKi/d2y+4aa28Ia8weNT0bfgWpY6Vs3Oq/K8+DjfbR+tWYw==
@@ -6603,7 +6598,7 @@ webpack-sources@^1.1.0, webpack-sources@^1.3.0:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@^4.20:
+webpack@^4.32:
   version "4.32.0"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.32.0.tgz#d8726fe73bb362e0e48171990f362df5e747747b"
   integrity sha512-ofFq9jjAn4HRzlmkcZZrjijbRZcqDw+mM9KrjKd0r6lS0qxyZ7jzICzhphGafXL62dGdjP7TgMK9mZeMLUgZgw==
