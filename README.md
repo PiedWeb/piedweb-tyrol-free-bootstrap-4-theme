@@ -5,6 +5,8 @@
 
 # PiedWeb Bootstrap 4 theme without jQuery
 
+[![dependencies Status](https://david-dm.org/PiedWeb/piedweb-tyrol-free-bootstrap-4-theme/status.svg)](https://david-dm.org/PiedWeb/piedweb-tyrol-free-bootstrap-4-theme)
+
 Tyrol is a responsive BS4 theme built as light as possible.
 
 It's the default theme for [Pied Web CMS](https://github.com/PiedWeb/CMS)
