@@ -29,13 +29,14 @@ const config = {
                             sourceMap: true
                         }
                     },
+                    'css-loader',
                     {
                         loader: 'postcss-loader', // Run post css actions
                         options: {
                             sourceMap: true,
                             plugins: function() {
                                 return [
-                                    //require('postcss-flexbugs-fixes'),
+                                    require('postcss-flexbugs-fixes'),
                                     require('autoprefixer')
                                 ];
                             }
