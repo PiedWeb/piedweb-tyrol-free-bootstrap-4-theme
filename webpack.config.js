@@ -23,12 +23,14 @@ const config = {
         rules: [{
                 test: /\.s?[ac]ss$/,
                 use: [
+                /**
                     {
                         loader: 'style-loader', // translates CSS into CommonJS modules
                         options: {
                             sourceMap: true
                         }
-                    },
+                    },**/
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     {
                         loader: 'postcss-loader', // Run post css actions
