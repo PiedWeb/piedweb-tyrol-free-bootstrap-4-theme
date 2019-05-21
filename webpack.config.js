@@ -3,7 +3,6 @@ require('webpack');
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
@@ -23,12 +22,10 @@ const config = {
         rules: [{
                 test: /\.s?[ac]ss$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
                     {
-                        loader: 'css-loader', // translates CSS into CommonJS modules
+                        loader: 'style-loader', // translates CSS into CommonJS modules
                         options: {
-                            sourceMap: true,
-                            minimize: true
+                            sourceMap: true
                         }
                     },
                     {
@@ -37,7 +34,7 @@ const config = {
                             sourceMap: true,
                             plugins: function() {
                                 return [
-                                    require('postcss-flexbugs-fixes'),
+                                    //require('postcss-flexbugs-fixes'),
                                     require('autoprefixer')
                                 ];
                             }
@@ -70,7 +67,7 @@ const config = {
                 use: [{
                     loader: 'babel-loader', // transpile to ES5
                     options: {
-                        presets: ['env']
+                        presets: ["@babel/preset-env"]
                     }
                 }]
             }
