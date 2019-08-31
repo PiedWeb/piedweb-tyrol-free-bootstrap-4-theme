@@ -66,7 +66,7 @@ function applyOnDomLoaded() {
   });
   var masonry = new Macy({
     container: '#flex-mansory',
-    columns: 1,
+    columns: 4,
     margin: {
       y: 16,
       x: '2%',
