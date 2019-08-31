@@ -47,18 +47,61 @@
     <section id="gallery">
         <div class=container>
             <div class="row mimg">
-                <div class="col-lg-3 col-md-4 col-xs-6"><a href="https://source.unsplash.com/1600x900/?mountain,water"><span data-img="https://source.unsplash.com/1600x900/?mountain,water">Rando 1</span></a></div>
-                <div class="col-lg-3 col-md-4 col-xs-6"><a href=https://source.unsplash.com/1600x900/?mountain,skin><img src="https://source.unsplash.com/1600x900/?mountain,yellow" alt="Image 2"></a></div>
-                <div class="col-lg-3 col-md-4 col-xs-6"><a href=https://source.unsplash.com/1600x900/?mountain,sea><img src="https://source.unsplash.com/1600x900/?mountain,sea" alt="Image 6"></a></div>
-                <div class="col-lg-3 col-md-4 col-xs-6"><a href=https://source.unsplash.com/1600x900/?mountain,water><img src="https://source.unsplash.com/1600x900/?mountain,water" alt="Image 7"></a></div>
-                <div class="col-lg-3 col-md-4 col-xs-6"><a href=https://source.unsplash.com/1600x900/?mountain,rock><span data-img="https://source.unsplash.com/1600x900/?mountain,rock">Image 8</span></a></div>
-                <div class="col-lg-3 col-md-4 col-xs-6"><a href=https://source.unsplash.com/1600x900/?mountain,water><span data-img="https://source.unsplash.com/1600x900/?mountain,panorama">Image 9</span></a></div>
-                <div class="col-lg-3 col-md-4 col-xs-6"><a href=https://source.unsplash.com/1600x900/?landscape><img src="https://source.unsplash.com/1600x900/?landscape" alt="Image 3"></a></div>
-                <div class="col-lg-3 col-md-4 col-xs-6"><a href=https://source.unsplash.com/1600x900/?mountain,hike><img src="https://source.unsplash.com/1600x900/?mountain,hike" alt="Image 4"></a></div>
+                <div class="col-12 col-lg-4 col-md-6"><a href="https://source.unsplash.com/1600x900/?mountain,water"><span data-img="https://source.unsplash.com/1600x900/?mountain,water">Rando 1</span></a></div>
+                <div class="col-12 col-lg-4 col-md-6"><a href=https://source.unsplash.com/1600x900/?mountain,skin><img src="https://source.unsplash.com/1600x900/?mountain,yellow" alt="Image 2"></a></div>
+                <div class="col-12 col-lg-4 col-md-6"><a href=https://source.unsplash.com/1600x900/?mountain,sea><img src="https://source.unsplash.com/1600x900/?mountain,sea" alt="Image 6"></a></div>
+                <div class="col-12 col-lg-4 col-md-6"><a href=https://source.unsplash.com/1600x900/?mountain,water><img src="https://source.unsplash.com/1600x900/?mountain,water" alt="Image 7"></a></div>
+                <div class="col-12 col-lg-4 col-md-6"><a href=https://source.unsplash.com/1600x900/?mountain,rock><span data-img="https://source.unsplash.com/1600x900/?mountain,rock">Image 8</span></a></div>
+                <div class="col-12 col-lg-4 col-md-6"><a href=https://source.unsplash.com/1600x900/?mountain,water><span data-img="https://source.unsplash.com/1600x900/?mountain,panorama">Image 9</span></a></div>
+                <div class="col-12 col-lg-4 col-md-6"><a href=https://source.unsplash.com/1600x900/?landscape><img src="https://source.unsplash.com/1600x900/?landscape" alt="Image 3"></a></div>
+                <div class="col-12 col-lg-4 col-md-6"><a href=https://source.unsplash.com/1600x900/?mountain,hike><img src="https://source.unsplash.com/1600x900/?mountain,hike" alt="Image 4"></a></div>
             </div>
         </div>
     </section>
 
+    <!-- FlexGallery -->
+    <!-- /!\ BaguetteBox don't work with unsplasch photo !! -->
+    <section id="mansory-without-js-gallery" class="section-gap">
+        <div class=container>
+        <h2>flex mansory without JS</h2>
+        <!--
+         L'intégrer :
+         - diviser le nombre d'image par 3 (3 colonnes)
+         - construire les colonnes en ajoutant l'image suivante dans la colonne au plus faible ratio
+         = ratio = somme des width/height
+         con:
+         - on perds l'ordre des images
+         - seulement 2 colonnes sur un écrange lg
+         -->
+          <div class="row">
+              <div class="col-12 col-md-6">
+                  <img src="https://source.unsplash.com/900x1600/?mountain,hike" alt="Image 4" class="pb-3 img-fluid">
+                  <img src="https://source.unsplash.com/1600x900/?mountain" alt="Image 4" class="pb-3 img-fluid">
+                  <img src="https://source.unsplash.com/900x1600/?mountain,rock" alt="Image 4" class="pb-3 img-fluid">
+              </div>
+
+              <div class="col-12 col-md-6">
+                  <img src="https://source.unsplash.com/1600x900/?travel" alt="Image 4" class="pb-3 img-fluid">
+                  <img src="https://source.unsplash.com/900x1600/?travel,hike" alt="Image 4" class="pb-3 img-fluid">
+                  <img src="https://source.unsplash.com/1600x900/?mountain,water" alt="Image 4" class="pb-3 img-fluid">
+              </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="section-gap">
+        <div class=container>
+        <h2>flex mansory</h2>
+          <div class="row" id="flex-mansory">
+                  <img src="https://source.unsplash.com/900x1600/?mountain,hike" alt="Image 4" >
+                  <img src="https://source.unsplash.com/1600x900/?mountain" alt="Image 4" >
+                  <img src="https://source.unsplash.com/900x1600/?mountain,rock" alt="Image 4" >
+                  <img src="https://source.unsplash.com/1600x900/?travel" alt="Image 4" >
+                  <img src="https://source.unsplash.com/900x1600/?travel,hike" alt="Image 4" >
+                  <img src="https://source.unsplash.com/1600x900/?mountain,water" alt="Image 4" >
+          </div>
+        </div>
+    </section>
 
     <!-- Related Content 1 -->
     <div class=section-gap>

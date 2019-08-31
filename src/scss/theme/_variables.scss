@@ -10,7 +10,7 @@ $navbar-bg-nostick: $primary !default; // or small
 
 $logo: url('../img/logo.png') !default;
 $logo-width: 150px !default;
-$logo-heigt: 50px !default;
+$logo-height: 50px !default;
 
 // Bootstrap Variables
 $body-color: #777777 !default;
@@ -24,3 +24,5 @@ $btn-border-radius: 20px !default;
 $btn-font-size: .8em !default;
 
 $headings-color	: #222222 !default;
+
+$section-gap: 100px 0 !default;

@@ -13,6 +13,8 @@ import BootstrapCookieConsent from "bootstrap-cookie-consent";
 
 import baguetteBox from "baguettebox.js";
 
+import Macy from "macy";
+
 var bsn = require("bootstrap.native/dist/bootstrap-native-v4");
 
 import {
@@ -39,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
     services: ["StatistiquesAnonymes", "YouTube"],
     services_descr: {
       StatistiquesAnonymes:
-        "Nous permet d'améliorer le site en fonction de son utilisation",
+    "Nous permet d'améliorer le site en fonction de son utilisation",
       YouTube: "Affiche les vidéos du service youtube.com"
     },
     method: "bsn"
@@ -61,5 +63,19 @@ function applyOnDomLoaded() {
     captions: function(element) {
       return element.getElementsByTagName("img")[0].alt;
     }
+  });
+  var masonry = new Macy({
+    container: '#flex-mansory',
+    columns: 1,
+    margin: {
+      y: 16,
+      x: '2%',
+    },
+    breakAt: {
+      1200: 4,
+      992: 3,
+      768: 2,
+      576: 1
+    },
   });
 }
