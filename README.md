@@ -43,6 +43,8 @@ See
 
 ### Thanks to
 
-* [Bootstrap 4](https://github.com/twbs/bootstrap)
-* [Bootstrap native](https://github.com/thednp/bootstrap.native)
-* [baguetteBox](https://github.com/feimosi/baguetteBox.js)
+See [dependencies](package.json)
+
+### Todo
+
+- Switch from baguettebox to perfundo

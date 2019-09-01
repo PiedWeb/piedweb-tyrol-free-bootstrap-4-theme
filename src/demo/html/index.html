@@ -59,46 +59,17 @@
         </div>
     </section>
 
-    <!-- FlexGallery -->
-    <!-- /!\ BaguetteBox don't work with unsplasch photo !! -->
-    <section id="mansory-without-js-gallery" class="section-gap">
-        <div class=container>
-        <h2>flex mansory without JS</h2>
-        <!--
-         L'intégrer :
-         - diviser le nombre d'image par 3 (3 colonnes)
-         - construire les colonnes en ajoutant l'image suivante dans la colonne au plus faible ratio
-         = ratio = somme des width/height
-         con:
-         - on perds l'ordre des images
-         - seulement 2 colonnes sur un écrange lg
-         -->
-          <div class="row">
-              <div class="col-12 col-md-6">
-                  <img src="https://source.unsplash.com/900x1600/?mountain,hike" alt="Image 4" class="pb-3 img-fluid">
-                  <img src="https://source.unsplash.com/1600x900/?mountain" alt="Image 4" class="pb-3 img-fluid">
-                  <img src="https://source.unsplash.com/900x1600/?mountain,rock" alt="Image 4" class="pb-3 img-fluid">
-              </div>
-
-              <div class="col-12 col-md-6">
-                  <img src="https://source.unsplash.com/1600x900/?travel" alt="Image 4" class="pb-3 img-fluid">
-                  <img src="https://source.unsplash.com/900x1600/?travel,hike" alt="Image 4" class="pb-3 img-fluid">
-                  <img src="https://source.unsplash.com/1600x900/?mountain,water" alt="Image 4" class="pb-3 img-fluid">
-              </div>
-          </div>
-        </div>
-    </section>
-
     <section class="section-gap">
         <div class=container>
         <h2>flex mansory</h2>
-          <div class="row" id="flex-mansory">
-                  <img src="https://source.unsplash.com/900x1600/?mountain,hike" alt="Image 4" >
-                  <img src="https://source.unsplash.com/1600x900/?mountain" alt="Image 4" >
-                  <img src="https://source.unsplash.com/900x1600/?mountain,rock" alt="Image 4" >
-                  <img src="https://source.unsplash.com/1600x900/?travel" alt="Image 4" >
-                  <img src="https://source.unsplash.com/900x1600/?travel,hike" alt="Image 4" >
-                  <img src="https://source.unsplash.com/1600x900/?mountain,water" alt="Image 4" >
+        <!-- if Macy (javascript) is disabled, order is losed -->
+          <div class="masonry" id="flex-mansory">
+                  <img src="https://source.unsplash.com/900x1600/?mountain,hike" alt="Image 4" class="tile">
+                  <img src="https://source.unsplash.com/1600x900/?mountain" alt="Image 4" class="tile">
+                  <img src="https://source.unsplash.com/1600x900/?mountain,rock" alt="Image 4" class="tile">
+                  <img src="https://source.unsplash.com/1600x900/?travel" alt="Image 4" class="tile">
+                  <img src="https://source.unsplash.com/900x1600/?travel,hike" alt="Image 4" class="tile">
+                  <img src="https://source.unsplash.com/1600x900/?mountain,water" alt="Image 4" class="tile">
           </div>
         </div>
     </section>
