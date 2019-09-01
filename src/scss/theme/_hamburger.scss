@@ -5,11 +5,6 @@
 #toggler {
   display: none;
 }
-
-.navbar-collapse {
-    padding-top:15px;
-}
-
 @media screen and (max-width: $navbar-expand) {
 .hamburger {
   display:inline-block;
@@ -18,8 +13,7 @@
   background: transparent;
   border: none;
   cursor:pointer;
-  margin-right:15px;
-  margin-top:5px;
+  margin-right: $navbar-padding-x;
 
   &:focus {
     outline: none;
@@ -57,22 +51,28 @@
 
 .navbar {
   max-height: $navbar-height;
-  transition: max-height 0.15s ease-in;
   padding-right:0;
   padding-left: 0;
 }
+.navbar-brand {
+  margin-left: $navbar-padding-x;
+}
+
   .navbar-collapse {
       display:block;
+      margin-top  : $navbar-padding-y;
       padding-left:15px;
       padding-right:15px;
       background-color: $navbar-bg;
       width: 100%;
       overflow: hidden;
       max-height: 0;
-      transition: max-height 600ms ease-out;
+      transition: all 600ms ease-out;
     }
     #toggler:checked + .navbar-collapse {
+      padding-top: 15px;
+      padding-bottom: 15px;
       max-height: 1000px ;
-      transition: max-height 600ms ease-in;
+      transition: all 600ms ease-in;
     }
 }
