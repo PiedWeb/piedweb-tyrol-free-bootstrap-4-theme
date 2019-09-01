@@ -1,6 +1,6 @@
 {
   "name": "piedweb-tyrol-free-bootstrap-4-theme",
-  "version": "0.1.30",
+  "version": "0.1.32",
   "description": "Free Bootstrap 4 theme UltraLight (without jQuery)",
   "author": "Robin D. <contact@piedweb.com>",
   "license": "MIT",
@@ -24,12 +24,12 @@
   },
   "homepage": "https://dev.piedweb.com",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.10",
+    "@fortawesome/free-solid-svg-icons": "^5.10",
     "baguettebox.js": "^1.11.0",
     "bootstrap": "^4.3",
     "bootstrap-cookie-consent": "^0.0.7",
     "bootstrap.native": "^2.0",
-    "@fortawesome/fontawesome-free": "^5.10",
-    "@fortawesome/free-solid-svg-icons": "^5.10",
     "macy": "^2.5",
     "piedweb-cms-js-helpers": "^0"
   },

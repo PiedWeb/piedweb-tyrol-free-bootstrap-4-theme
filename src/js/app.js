@@ -54,9 +54,9 @@ document.addEventListener("DOMContentLoaded", function() {
 function applyOnDomLoaded() {
   fixedNavBar();
   allClickable(".clickable");
-  imgLazyLoad();
   readableEmail(".cea");
   backgroundLazyLoad();
+  imgLazyLoad();
   convertInLinks();
   applySmoothScroll();
   baguetteBox.run(".mimg", {
@@ -64,8 +64,9 @@ function applyOnDomLoaded() {
       return element.getElementsByTagName("img")[0].alt;
     }
   });
+
   var masonry = new Macy({
-    container: '#flex-mansory',
+    container: '#flex-masonry',
     columns: 3,
     margin: {
       y: 16,

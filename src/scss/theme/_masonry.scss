@@ -5,7 +5,7 @@
     column-count: 2;
   }
 
-  @media (min-width: map-get($grid-breakpoints, "lg")) {
+  @media (min-width: map-get($grid-breakpoints, "xl")) {
     column-count: 3;
   }
 }
@@ -17,3 +17,6 @@
   width: 100%;
 }
 
+.tile img {
+  width: 100%;
+}

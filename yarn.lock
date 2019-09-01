@@ -4384,6 +4384,11 @@ macy@^2.5:
   resolved "https://registry.yarnpkg.com/macy/-/macy-2.5.0.tgz#60b1fa80ee57b2e005110f4f0cb74f798d786a52"
   integrity sha512-pmFmJm9ivdMm0ZwlcF77XLu7pX8fuw7ryY2l49Sq7KI5ZE/n+OTRV9JIv+629Enj1ZUZSiSt3lsaCiNGM0oAmA==
 
+magic-grid@^3.2.4:
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/magic-grid/-/magic-grid-3.2.4.tgz#3770740fa46b6c6da25b551ac77fca4754068d23"
+  integrity sha512-zdV8b4q3YpmWZKLcbbfKisxAWlYF9S2dguCi3LR9pq59yq2pl140td4ViwDqYkZGZ6TP+B7YaExaVE3YNqN7/g==
+
 make-dir@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-2.1.0.tgz#5f0310e18b8be898cc07009295a30ae41e91e6f5"
