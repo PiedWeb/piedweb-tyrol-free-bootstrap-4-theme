@@ -1,6 +1,9 @@
 // -------
 // Helpers
 // -------
+body {
+  scroll-behavior: smooth;
+}
 
 .letter-spacing {
   text-transform: uppercase;
