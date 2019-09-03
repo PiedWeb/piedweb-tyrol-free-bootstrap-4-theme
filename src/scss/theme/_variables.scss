@@ -8,7 +8,7 @@ $footer-background-color: #222 !default;
 $navbar-bg: rgba(0,0,0, 0.5); //$primary !default;
 $navbar-bg-stick: rgba(0,0,0, 0.5); //$primary !default;
 $navbar-bg-nostick: $primary !default; // or small
-$hamburger-color: #fff;
+$hamburger-color: #fff !default;
 
 $logo: url('../img/logo.png') !default;
 $logo-width: 150px !default;
