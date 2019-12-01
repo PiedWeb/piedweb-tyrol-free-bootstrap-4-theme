@@ -156,25 +156,22 @@ export function addAClassOnScroll(selector, classToAdd, delay = 10) {
  */
 export function convertInLinks(attribute = "data-href") {
   var test = [];
-  if (typeof test.push === "function") {
-    // to avoid gooogle bot execute
-    [].forEach.call(document.querySelectorAll("[" + attribute + "]"), function(
-      element
-    ) {
-      var link = document.createElement("a");
-      var href = element.getAttribute(attribute);
-      element.removeAttribute(attribute);
-      for (var i = 0, n = element.attributes.length; i < n; i++) {
-        link.setAttribute(
-          element.attributes[i].nodeName,
-          element.attributes[i].nodeValue
-        );
-      }
-      link.textContent = element.textContent;
-      link.setAttribute("href", href);
-      element.outerHTML = link.outerHTML;
-    });
-  }
+  [].forEach.call(document.querySelectorAll("[" + attribute + "]"), function(
+    element
+  ) {
+    var link = document.createElement("a");
+    var href = element.getAttribute(attribute);
+    element.removeAttribute(attribute);
+    for (var i = 0, n = element.attributes.length; i < n; i++) {
+      link.setAttribute(
+        element.attributes[i].nodeName,
+        element.attributes[i].nodeValue
+      );
+    }
+    link.textContent = element.textContent;
+    link.setAttribute("href", href);
+    element.outerHTML = link.outerHTML;
+  });
 }
 
 /**
@@ -186,25 +183,22 @@ export function convertInLinks(attribute = "data-href") {
  */
 export function convertInLinksFromRot13(attribute = "data-rot") {
   var test = [];
-  if (typeof test.push === "function") {
-    // to avoid gooogle bot execute
-    [].forEach.call(document.querySelectorAll("[" + attribute + "]"), function(
-      element
-    ) {
-      var link = document.createElement("a");
-      var href = element.getAttribute(attribute);
-      element.removeAttribute(attribute);
-      for (var i = 0, n = element.attributes.length; i < n; i++) {
-        link.setAttribute(
-          element.attributes[i].nodeName,
-          element.attributes[i].nodeValue
-        );
-      }
-      link.textContent = element.textContent;
-      link.setAttribute("href", convertShortchutForLink(rot13ToText(href)));
-      element.outerHTML = link.outerHTML;
-    });
-  }
+  [].forEach.call(document.querySelectorAll("[" + attribute + "]"), function(
+    element
+  ) {
+    var link = document.createElement("a");
+    var href = element.getAttribute(attribute);
+    element.removeAttribute(attribute);
+    for (var i = 0, n = element.attributes.length; i < n; i++) {
+      link.setAttribute(
+        element.attributes[i].nodeName,
+        element.attributes[i].nodeValue
+      );
+    }
+    link.textContent = element.textContent;
+    link.setAttribute("href", convertShortchutForLink(rot13ToText(href)));
+    element.outerHTML = link.outerHTML;
+  });
 }
 
 export function convertShortchutForLink(str) {

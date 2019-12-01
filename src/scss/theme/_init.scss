@@ -18,10 +18,6 @@ body {
     cursor: pointer;
 }
 
-.section-gap {
-    padding: $section-gap;
-}
-
 .section-light {
     background-color:$light;
 }
@@ -44,6 +40,19 @@ body {
 }
 
 // Remove white space for non-js client
-[data-img] {
+span[data-img] {
     display:none;
+}
+
+.fullwidth {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.container-txt {
+    max-width: $container-txt-max-width;
 }
