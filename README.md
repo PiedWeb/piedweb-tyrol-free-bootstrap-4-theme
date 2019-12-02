@@ -48,3 +48,6 @@ See [dependencies](package.json)
 ### Todo
 
 - Switch from baguettebox to perfundo
+
+Theme used on [qwanturank](https://qwanturankseo.com/)
+
