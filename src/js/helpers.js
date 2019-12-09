@@ -46,7 +46,7 @@ export function backgroundLazyLoad(
   darken = {
     center: "radial-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) )",
     inverse:
-      "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3),  rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 1) )",
+      "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0),  rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 1) )",
     default: "linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) )"
   }
 ) {
@@ -67,6 +67,8 @@ export function backgroundLazyLoad(
         bg_src = darken[block.getAttribute(overlay)] + "," + bg_src;
       } else if (block.getAttribute(overlay) == 'true') {
         bg_src = darken['default'] + "," + bg_src;
+      } else if (block.getAttribute(overlay)) {
+          bg_src = block.getAttribute(overlay) + "," + bg_src;
       } else {
         bg_src = block.getAttribute(overlay) + bg_src;
       }
