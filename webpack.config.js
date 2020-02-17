@@ -5,7 +5,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -79,7 +78,6 @@ const config = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        //new FaviconsWebpackPlugin('./src/img/logo_title.png'),
         //new CopyWebpackPlugin([{from:'./src/demo/html/img', to: 'img'}]),
         new MiniCssExtractPlugin({
             filename: "app.css",
