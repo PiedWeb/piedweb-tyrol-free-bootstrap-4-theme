@@ -50,16 +50,24 @@ export function backgroundLazyLoad(
     default: "linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) )"
   }
 ) {
+    function rgb2hex(rgb) {
+        rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+        function hex(x) {
+            return ("0" + parseInt(x).toString(16)).slice(-2);
+        }
+        return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+    }
+
   var id = null;
   [].forEach.call(document.querySelectorAll("[" + attribute + "]"), function(
     block
   ) {
-    var bg_src = block.dataset.bg;
-    bg_src =
-      "url('" +
+    var src = block.dataset.bg;
+
+    var bg_src = "url('" +
       (typeof responsiveImage === "function"
-        ? responsiveImage(bg_src)
-        : bg_src) +
+        ? responsiveImage(src)
+        : src) +
       "')";
 
     if (block.getAttribute(overlay)) {
@@ -74,12 +82,10 @@ export function backgroundLazyLoad(
       }
       block.removeAttribute(overlay);
     }
-
     bg_src += " " + (block.getAttribute(position) ? block.getAttribute(position) : 'no-repeat center center fixed');
-    bg_src += ";background-size:cover";
     block.removeAttribute(position);
     block.removeAttribute("data-bg");
-    block.setAttribute("style", "background:" + bg_src);
+    block.setAttribute("style",  "background:" +(block.style.backgroundColor ? rgb2hex(block.style.backgroundColor) : '')+" "+ bg_src+";background-size:cover");
   });
 }
 
