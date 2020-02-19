@@ -5,8 +5,9 @@ $secondary        : #FFC107 !default;
 $white            : #fff !default;
 
 $footer-background-color: #222 !default;
-$navbar-bg: rgba(0,0,0, 0.5); //$primary !default;
-$navbar-bg-stick: rgba(0,0,0, 0.5); //$primary !default;
+$navbar-default-bg: rgba(0,0,0, 0.5) !default;
+$navbar-bg: $navbar-default-bg !default; //$primary !default;
+$navbar-bg-stick: rgba(0,0,0, 0.5) !default; //$primary !default;
 $navbar-bg-nostick: $primary !default; // or small
 $hamburger-color: #fff !default;
 

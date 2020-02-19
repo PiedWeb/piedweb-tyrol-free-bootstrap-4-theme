@@ -59,10 +59,16 @@ export function backgroundLazyLoad(
     }
 
   var id = null;
+
   [].forEach.call(document.querySelectorAll("[" + attribute + "]"), function(
     block
   ) {
-    var src = block.dataset.bg;
+      if(window.location.hash && block.getAttribute(attribute+"_"+window.location.hash.substring(1))) {
+        var src = block.getAttribute(attribute +"_"+window.location.hash.substring(1));
+        block.removeAttribute(attribute +"_"+window.location.hash.substring(1));
+      } else {
+        var src = block.getAttribute(attribute); //block.dataset.bg;
+      }
 
     var bg_src = "url('" +
       (typeof responsiveImage === "function"
@@ -84,7 +90,7 @@ export function backgroundLazyLoad(
     }
     bg_src += " " + (block.getAttribute(position) ? block.getAttribute(position) : 'no-repeat center center fixed');
     block.removeAttribute(position);
-    block.removeAttribute("data-bg");
+    block.removeAttribute(attribute);
     block.setAttribute("style",  "background:" +(block.style.backgroundColor ? rgb2hex(block.style.backgroundColor) : '')+" "+ bg_src+";background-size:cover");
   });
 }
