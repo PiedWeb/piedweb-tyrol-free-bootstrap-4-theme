@@ -11,12 +11,16 @@ $navbar-bg-stick: rgba(0,0,0, 0.5) !default; //$primary !default;
 $navbar-bg-nostick: $primary !default; // or small
 $hamburger-color: #fff !default;
 
+$navbar-padding-y:                  8px !default;
+$navbar-padding-x:                  15px !default;
 $logo: url('../img/logo.png') !default;
 $logo-width: 150px !default;
 $logo-height: 50px !default;
-$navbar-height: $logo-height + 16px !default;
-$navbar-padding-y:                  8px !default;
-$navbar-padding-x:                  15px !default;
+$navbar-height: $logo-height + $navbar-padding-y + $navbar-padding-y !default;
+
+$logo-width-on-small-screen: $logo-width * 0.8 !default;
+$logo-height-on-small-screen: $logo-height * 0.8 !default;
+$navbar-height-on-small-screen: $logo-height-on-small-screen + $navbar-padding-y + $navbar-padding-y !default;
 
 $navbar-expand: 992px !default; // lg
 

@@ -51,11 +51,30 @@
     }
 }
 
+.top-0 {
+    top: 0;
+}
+
+.next-navbar {
+    margin-top: $navbar-height;
+}
+
+@include media-breakpoint-down (md) {
+    .navbar-brand {
+        width: $logo-width-on-small-screen;
+        height: $logo-height-on-small-screen;
+    }
+    .next-navbar {
+        margin-top: $navbar-height-on-small-screen;
+    }
+}
+
 .navbar {
   max-height: $navbar-height;
   padding-right:0;
   padding-left: 0;
 }
+
 .navbar-brand {
   margin-left: $navbar-padding-x;
 }
