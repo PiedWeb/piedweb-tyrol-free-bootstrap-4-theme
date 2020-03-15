@@ -3,7 +3,7 @@
         min-height: $halfscreen-min-height;
     }
 }
-.cover-banner
+.cover-banner {
     @include media-breakpoint-down(md) {
         background-image: none !important;
     }
