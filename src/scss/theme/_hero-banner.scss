@@ -3,7 +3,7 @@
         min-height: $halfscreen-min-height;
     }
     @include media-breakpoint-down(md) {
-        background-image: none;
+        background-image: none !important;
     }
 }
 
