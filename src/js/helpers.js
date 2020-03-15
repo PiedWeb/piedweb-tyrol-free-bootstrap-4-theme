@@ -81,7 +81,7 @@ export function backgroundLazyLoad(
         bg_src = darken[block.getAttribute(overlay)] + "," + bg_src;
       } else if (block.getAttribute(overlay) == 'true') {
         bg_src = darken['default'] + "," + bg_src;
-      } else if (block.getAttribute(overlay)) {
+      } else if (block.getAttribute(overlay) && block.getAttribute(overlay) != ' ') {
           bg_src = block.getAttribute(overlay) + "," + bg_src;
       }
       block.removeAttribute(overlay);
