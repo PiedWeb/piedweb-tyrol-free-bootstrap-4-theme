@@ -18,6 +18,8 @@ $logo-width: 150px !default;
 $logo-height: 50px !default;
 $navbar-height: $logo-height + $navbar-padding-y + $navbar-padding-y !default;
 
+$halfscreen-min-height : 60vh !default;
+
 $logo-width-on-small-screen: $logo-width * 0.8 !default;
 $logo-height-on-small-screen: $logo-height * 0.8 !default;
 $navbar-height-on-small-screen: $logo-height-on-small-screen + $navbar-padding-y + $navbar-padding-y !default;

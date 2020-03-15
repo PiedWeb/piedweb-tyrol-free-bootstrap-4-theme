@@ -1,6 +1,9 @@
 .halfscreen {
     @include media-breakpoint-up(md) {
-        min-height:60vh;
+        min-height: $halfscreen-min-height;
+    }
+    @include media-breakpoint-down(md) {
+        background-image: none;
     }
 }
 
