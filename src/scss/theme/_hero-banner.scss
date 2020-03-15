@@ -2,6 +2,8 @@
     @include media-breakpoint-up(md) {
         min-height: $halfscreen-min-height;
     }
+}
+.cover-banner
     @include media-breakpoint-down(md) {
         background-image: none !important;
     }
