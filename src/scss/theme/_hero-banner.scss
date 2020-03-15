@@ -1,5 +1,7 @@
 .halfscreen {
-    min-height:60vh;
+    @include media-breakpoint-up(md) {
+        min-height:60vh;
+    }
 }
 
 .hero-banner {
