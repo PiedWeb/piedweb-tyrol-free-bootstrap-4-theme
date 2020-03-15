@@ -52,7 +52,7 @@
     }
 
     .navbar {
-      max-height: $navbar-height;
+      max-height: $navbar-height-on-small-screen;
       padding-right:0;
       padding-left: 0;
     }
@@ -63,7 +63,7 @@
 
   .navbar-collapse {
       display:block;
-      margin-top  : $navbar-padding-y;
+      margin-top  : $navbar-padding-y; //$navbar-padding-y + $navbar-padding-y;
       padding-left:15px;
       padding-right:15px;
       background-color: $navbar-default-bg;
@@ -75,7 +75,7 @@
     #toggler:checked + .navbar-collapse {
       padding-top: 15px;
       padding-bottom: 15px;
-      max-height: 1000px ;
+      max-height: 80vh;
       transition: all 600ms ease-in;
     }
 }
