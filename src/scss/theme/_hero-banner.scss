@@ -15,6 +15,16 @@
         background: $primary linear-gradient(180deg, mix($body-color, $primary, 15%), $primary) repeat-x;
     }
 
+    @include media-breakpoint-up (md) {
+        .stick-bottom {
+            position: absolute;
+            bottom: 15px;
+            padding-bottom: 3rem;
+            left: 16px;
+            right: 16px;
+        }
+    }
+
 }
 
 .navbar{
