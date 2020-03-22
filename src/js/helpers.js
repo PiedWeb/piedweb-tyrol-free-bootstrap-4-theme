@@ -73,12 +73,13 @@ export function backgroundLazyLoad(
             ? responsiveImage(src)
             : src));
         }
-
+        var bg_color = ''; // default color... better than weird color... may implement https://stackoverflow.com/questions/2541481/get-average-color-of-image-via-javascript
       } else {
         var src = block.getAttribute(attribute); //block.dataset.bg;
+        var bg_color = (block.style.backgroundColor ? rgb2hex(block.style.backgroundColor) : '');
       }
 
-    var bg_src = (block.style.backgroundColor ? rgb2hex(block.style.backgroundColor) : '')+" url('" +
+    var bg_src = bg_color+" url('" +
       (typeof responsiveImage === "function"
         ? responsiveImage(src)
         : src) +
