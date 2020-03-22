@@ -66,6 +66,14 @@ export function backgroundLazyLoad(
       if(window.location.hash && block.getAttribute(attribute+"_"+window.location.hash.substring(1))) {
         var src = block.getAttribute(attribute +"_"+window.location.hash.substring(1));
         block.removeAttribute(attribute +"_"+window.location.hash.substring(1));
+
+        if (block.querySelector('.d-md-none img')) {
+            block.querySelector('.d-md-none img').setAttribute('srcset', '');
+            block.querySelector('.d-md-none img').setAttribute('src', (typeof responsiveImage === "function"
+            ? responsiveImage(src)
+            : src));
+        }
+
       } else {
         var src = block.getAttribute(attribute); //block.dataset.bg;
       }
