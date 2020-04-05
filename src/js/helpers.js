@@ -225,7 +225,7 @@ export function convertFormFromRot13(attribute = "data-frot") {
   ) {
     var action = element.getAttribute(attribute);
     element.removeAttribute(attribute);
-    element.setAttribute("action", convertShortchutForLink(rot13ToText(href)));
+    element.setAttribute("action", convertShortchutForLink(rot13ToText(action)));
   });
 }
 
