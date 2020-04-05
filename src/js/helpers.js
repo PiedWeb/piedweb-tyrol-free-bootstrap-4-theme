@@ -5,7 +5,7 @@
  * - backgroundLazyLoad(attribute, ...)  Add background to element wich have `attribute` (default data-bg)
  * - convertInLinks(attribute)           Convert elements wich contain attribute in normal link (a href)
  * - decodeToLink(attribute)             Convert elements wich contain attribute in rot13 in normal link (a href)
- * - convertInLinksFromRot13(attribute)  Convert elements wich contain attribute encoded in rot13 in normal link (a href)
+ * - convertInLinksFromRot13(attribute)  Convert elements wich contain attribute encoded in rot13 in normal link (href)
  * - clickable(element)                  transform an element containing a link (a href) in a clickable element
  * - allClickable(selector)              transform all selected element in clickable element
  * - resizeWithScreenHeight(selector)
@@ -16,7 +16,7 @@
  * - applySmoothScroll()                 Add smoothscrolleffect on link in the dom wich are hash links
  * - addAClassOnScroll(selector,
  *                  classToAdd, delay)   Add a class on Scroll and remove it when it's in default position
- *
+ *  - convertFormFromRot13(attr)        Convert action attr encoded in rot 13 to normal action with attr `data-frot`
  */
 
 
@@ -69,9 +69,7 @@ export function backgroundLazyLoad(
 
         if (block.querySelector('.d-md-none img')) {
             block.querySelector('.d-md-none img').setAttribute('srcset', '');
-            block.querySelector('.d-md-none img').setAttribute('src', (typeof responsiveImage === "function"
-            ? responsiveImage(src)
-            : src));
+            block.querySelector('.d-md-none img').setAttribute('src', responsiveImage(src));
         }
         var bg_color = ''; // default color... better than weird color... may implement https://stackoverflow.com/questions/2541481/get-average-color-of-image-via-javascript
       } else {
@@ -79,11 +77,7 @@ export function backgroundLazyLoad(
         var bg_color = (block.style.backgroundColor ? rgb2hex(block.style.backgroundColor) : '');
       }
 
-    var bg_src = bg_color+" url('" +
-      (typeof responsiveImage === "function"
-        ? responsiveImage(src)
-        : src) +
-      "')";
+    var bg_src = bg_color+" url('" + responsiveImage(src) + "')";
 
     if (block.getAttribute(overlay)) {
       if (darken[block.getAttribute(overlay)] != undefined) {
@@ -132,10 +126,7 @@ export function imgLazyLoad(attribute = "data-img") {
     if (newDomImg.getAttribute("alt") === null && img.textContent != "") {
       newDomImg.setAttribute("alt", img.textContent);
     }
-    newDomImg.setAttribute(
-      "src",
-      typeof responsiveImage === "function" ? responsiveImage(src) : src
-    );
+    newDomImg.setAttribute("src", responsiveImage(src));
     img.outerHTML = newDomImg.outerHTML;
   });
 }
@@ -219,6 +210,22 @@ export function convertInLinksFromRot13(attribute = "data-rot") {
     link.textContent = element.textContent;
     link.setAttribute("href", convertShortchutForLink(rot13ToText(href)));
     element.outerHTML = link.outerHTML;
+  });
+}
+
+/**
+ * Convert action attr encoded in rot 13 to normal action with default attr `data-frot`
+ *
+ * @param {string}  attribute
+ */
+export function convertFormFromRot13(attribute = "data-frot") {
+  var test = [];
+  [].forEach.call(document.querySelectorAll("[" + attribute + "]"), function(
+    element
+  ) {
+    var action = element.getAttribute(attribute);
+    element.removeAttribute(attribute);
+    element.setAttribute("action", convertShortchutForLink(rot13ToText(href)));
   });
 }
 
