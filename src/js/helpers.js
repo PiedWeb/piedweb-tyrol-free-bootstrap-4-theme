@@ -219,6 +219,7 @@ export function convertInLinksFromRot13 (attribute = 'data-rot') {
     if (element.parentNode.getAttribute(attribute)) {
       var element = element.parentNode
     }
+
     var link = document.createElement('a')
     var href = element.getAttribute(attribute)
     element.removeAttribute(attribute)
@@ -230,8 +231,7 @@ export function convertInLinksFromRot13 (attribute = 'data-rot') {
     }
     link.innerHTML = element.innerHTML
     link.setAttribute('href', convertShortchutForLink(rot13ToText(href)))
-    element.outerHTML = link.outerHTML
-
+    element.parentNode.replaceChild(link, element);
     return link
   }
 
