@@ -51,6 +51,14 @@ document.addEventListener('DOMContentLoaded', function () {
   addAClassOnScroll('.navbar', 'nostick', 50)
 })
 
+var gallery = function () {
+  baguetteBox.run('.mimg', {
+    captions: function (element) {
+      return element.getElementsByTagName('img')[0].alt
+    }
+  })
+}
+
 function applyOnDomLoaded () {
   fixedNavBar()
   allClickable('.clickable')
@@ -60,12 +68,7 @@ function applyOnDomLoaded () {
   convertInLinks()
   convertInLinksFromRot13()
   applySmoothScroll()
-  baguetteBox.run('.mimg', {
-    captions: function (element) {
-      return element.getElementsByTagName('img')[0].alt
-    }
-  })
-
+  gallery()
   var masonry = new Macy({
     container: '#flex-masonry',
     columns: 3,
@@ -79,3 +82,11 @@ function applyOnDomLoaded () {
     }
   })
 }
+
+function applyOnDomChanged () {
+  console.log('dom changed !')
+  gallery()
+}
+
+var observer = new MutationObserver(applyOnDomChanged)
+observer.observe(document.body, { attributes: true, childList: true, subtree: true })

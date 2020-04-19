@@ -214,7 +214,11 @@ export function convertInLinks (attribute = 'data-href') {
  */
 
 export function convertInLinksFromRot13 (attribute = 'data-rot') {
-  var convertInLinkFromRot13 = function (attribute, element) {
+  var convertInLinkFromRot13 = function (element) {
+    // fix bug with img
+    if (element.parentNode.getAttribute(attribute)) {
+      var element = element.parentNode
+    }
     var link = document.createElement('a')
     var href = element.getAttribute(attribute)
     element.removeAttribute(attribute)
@@ -224,16 +228,15 @@ export function convertInLinksFromRot13 (attribute = 'data-rot') {
         element.attributes[i].nodeValue
       )
     }
-    link.textContent = element.textContent
+    link.innerHTML = element.innerHTML
     link.setAttribute('href', convertShortchutForLink(rot13ToText(href)))
     element.outerHTML = link.outerHTML
 
     return link
-  };
+  }
 
-  var convertInLinksRot13OnFly = function (attribute, event) {
-    var attribute = 'data-rot'
-    var element = convertInLinkFromRot13(attribute, event.target)
+  var convertInLinksRot13OnFly = function (event) {
+    var element = convertInLinkFromRot13(event.target)
     var clickEvent = new Event(event.click)
     element.dispatchEvent(clickEvent)
   };
@@ -244,14 +247,14 @@ export function convertInLinksFromRot13 (attribute = 'data-rot') {
     element.addEventListener(
       'click',
       function (e) {
-        convertInLinksRot13OnFly(attribute, e)
+        convertInLinksRot13OnFly(e)
       },
       { once: true }
     )
     element.addEventListener(
       'mouseover',
       function (e) {
-        convertInLinksRot13OnFly(attribute, e)
+        convertInLinksRot13OnFly(e)
       },
       { once: true }
     )
@@ -262,7 +265,7 @@ export function convertInLinksFromRot13OldWay (attribute = 'data-rot') {
   [].forEach.call(document.querySelectorAll('[' + attribute + ']'), function (
     element
   ) {
-    //...
+    // ...
   })
 }
 
