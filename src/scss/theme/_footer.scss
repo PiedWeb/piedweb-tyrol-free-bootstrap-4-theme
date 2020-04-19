@@ -2,8 +2,9 @@
     color: color-yiq($footer-background-color);
     padding: 20px;
     background-color: $footer-background-color;
-    a {
+    a, .a {
         color: color-yiq($footer-background-color);
+        text-decoration: none;
     }
 }
 
