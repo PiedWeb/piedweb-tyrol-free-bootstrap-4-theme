@@ -7,15 +7,11 @@
  * Import CSS
  */
 
-require("../scss/main.scss");
+import BootstrapCookieConsent from 'bootstrap-cookie-consent'
 
-import BootstrapCookieConsent from "bootstrap-cookie-consent";
+import baguetteBox from 'baguettebox.js'
 
-import baguetteBox from "baguettebox.js";
-
-import Macy from "macy";
-
-var bsn = require("bootstrap.native/dist/bootstrap-native-v4");
+import Macy from 'macy'
 
 import {
   fixedNavBar,
@@ -32,49 +28,54 @@ import {
   applySmoothScroll,
   addAClassOnScroll,
   allClickable
-} from "./helpers.js";
+} from './helpers.js'
 
-document.addEventListener("DOMContentLoaded", function() {
-  applyOnDomLoaded();
+require('../scss/main.scss')
+
+var bsn = require('bootstrap.native/dist/bootstrap-native-v4')
+
+document.addEventListener('DOMContentLoaded', function () {
+  applyOnDomLoaded()
   /**/
   new BootstrapCookieConsent({
-    services: ["StatistiquesAnonymes", "YouTube"],
+    services: ['StatistiquesAnonymes', 'YouTube'],
     services_descr: {
       StatistiquesAnonymes:
-    "Nous permet d'améliorer le site en fonction de son utilisation",
-      YouTube: "Affiche les vidéos du service youtube.com"
+        "Nous permet d'améliorer le site en fonction de son utilisation",
+      YouTube: 'Affiche les vidéos du service youtube.com'
     },
-    method: "bsn"
-  });
+    method: 'bsn'
+  })
   /**/
 
-  addAClassOnScroll(".navbar", "nostick", 50);
-});
+  addAClassOnScroll('.navbar', 'nostick', 50)
+})
 
-function applyOnDomLoaded() {
-  fixedNavBar();
-  allClickable(".clickable");
-  readableEmail(".cea");
-  backgroundLazyLoad();
-  imgLazyLoad();
-  convertInLinks();
-  applySmoothScroll();
-  baguetteBox.run(".mimg", {
-    captions: function(element) {
-      return element.getElementsByTagName("img")[0].alt;
+function applyOnDomLoaded () {
+  fixedNavBar()
+  allClickable('.clickable')
+  readableEmail('.cea')
+  backgroundLazyLoad()
+  imgLazyLoad()
+  convertInLinks()
+  convertInLinksFromRot13()
+  applySmoothScroll()
+  baguetteBox.run('.mimg', {
+    captions: function (element) {
+      return element.getElementsByTagName('img')[0].alt
     }
-  });
+  })
 
   var masonry = new Macy({
     container: '#flex-masonry',
     columns: 3,
     margin: {
       y: 16,
-      x: '2%',
+      x: '2%'
     },
     breakAt: {
       992: 2,
       768: 1
-    },
-  });
+    }
+  })
 }
