@@ -84,9 +84,10 @@ function applyOnDomLoaded () {
 }
 
 function applyOnDomChanged () {
-  console.log('dom changed !')
   gallery()
 }
 
-var observer = new MutationObserver(applyOnDomChanged)
-observer.observe(document.body, { attributes: true, childList: true, subtree: true })
+document.addEventListener('linksBuilt', applyOnDomChanged)
+
+// var observer = new MutationObserver(applyOnDomChanged)
+// observer.observe(document.body, { attributes: true, childList: true, subtree: true })

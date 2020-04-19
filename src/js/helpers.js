@@ -231,12 +231,31 @@ export function convertInLinksFromRot13 (attribute = 'data-rot') {
     }
     link.innerHTML = element.innerHTML
     link.setAttribute('href', convertShortchutForLink(rot13ToText(href)))
-    element.parentNode.replaceChild(link, element);
+    element.parentNode.replaceChild(link, element)
     return link
   }
 
+  var convertThemAll = function (attribute, currentElement) {
+    [].forEach.call(document.querySelectorAll('[' + attribute + ']'), function (
+      element
+    ) {
+      if (element == currentElement) {
+        var toReturn = convertInLinkFromRot13(element)
+      } else {
+        convertInLinkFromRot13(element)
+      }
+    })
+  }
+
   var convertInLinksRot13OnFly = function (event) {
-    var element = convertInLinkFromRot13(event.target)
+    // convert them all if it's an image (thanks this bug), permit to use gallery (baguetteBox)
+    if (event.target.parentNode.getAttribute(attribute) && event.target.tagName == 'IMG') {
+      var element = convertThemAll(attribute, event.target)
+    } else {
+      var element = convertInLinkFromRot13(event.target)
+    }
+    document.dispatchEvent(new Event('linksBuilt'))
+
     var clickEvent = new Event(event.click)
     element.dispatchEvent(clickEvent)
   };
