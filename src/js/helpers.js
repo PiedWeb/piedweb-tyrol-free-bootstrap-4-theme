@@ -213,13 +213,12 @@ export function convertInLinks (attribute = 'data-href') {
  * @param {string}  attribute
  */
 
-export function convertInLinksFromRot13 (attribute = 'data-rot') {
+export async function convertInLinksFromRot13 (attribute = 'data-rot') {
   var convertInLinkFromRot13 = function (element) {
-    // fix bug with img
-    if (element.parentNode.getAttribute(attribute)) {
-      var element = element.parentNode
+    // fix "bug" with img
+    if (element.getAttribute(attribute) === null) {
+      var element = element.closest('['+attribute+']'); //var element = element.parentNode
     }
-
     var link = document.createElement('a')
     var href = element.getAttribute(attribute)
     element.removeAttribute(attribute)
@@ -235,34 +234,42 @@ export function convertInLinksFromRot13 (attribute = 'data-rot') {
     return link
   }
 
-  var convertThemAll = function (attribute, currentElement) {
+  var convertThemAll = function (attribute) {
     [].forEach.call(document.querySelectorAll('[' + attribute + ']'), function (
       element
     ) {
-      if (element == currentElement) {
-        var toReturn = convertInLinkFromRot13(element)
-      } else {
-        convertInLinkFromRot13(element)
-      }
+      convertInLinkFromRot13(element)
     })
   }
 
-  var convertInLinksRot13OnFly = function (event) {
+  var fireEventLinksBuilt = async function(element, event) {
+    await document.dispatchEvent(new Event('linksBuilt'))
+
+    var clickEvent = new Event(event.type)
+    element.dispatchEvent(clickEvent)
+  }
+
+  var convertInLinksRot13OnFly = async function (event) {
     // convert them all if it's an image (thanks this bug), permit to use gallery (baguetteBox)
-    if (event.target.parentNode.getAttribute(attribute) && event.target.tagName == 'IMG') {
-      var element = convertThemAll(attribute, event.target)
+    if (event.target.tagName == 'IMG') {
+      await convertThemAll(attribute)
+      var element = event.target;
     } else {
       var element = convertInLinkFromRot13(event.target)
     }
-    document.dispatchEvent(new Event('linksBuilt'))
-
-    var clickEvent = new Event(event.click)
-    element.dispatchEvent(clickEvent)
+    fireEventLinksBuilt(element, event);
   };
 
   [].forEach.call(document.querySelectorAll('[' + attribute + ']'), function (
     element
   ) {
+    element.addEventListener(
+      'touchstart',
+      function (e) {
+        convertInLinksRot13OnFly(e)
+      },
+      { once: true }
+    )
     element.addEventListener(
       'click',
       function (e) {
@@ -451,3 +458,4 @@ export function readableEmail (selector) {
     }
   })
 }
+
