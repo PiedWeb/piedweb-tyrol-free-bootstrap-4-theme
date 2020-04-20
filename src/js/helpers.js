@@ -233,7 +233,7 @@ export async function convertInLinksFromRot13 (attribute = 'data-rot') {
       )
     }
     link.innerHTML = element.innerHTML
-    link.setAttribute('href', convertShortchutForLink(rot13ToText(href)))
+    link.setAttribute('href', responsiveImage(convertShortchutForLink(rot13ToText(href))))
     element.parentNode.replaceChild(link, element)
     return link
   }
@@ -307,7 +307,7 @@ export function convertImageLinkToWebPLink () {
     [].forEach.call(document.querySelectorAll('a[dwl]'), function (
       element
     ) {
-      var href = element.getAttribute('dwl')
+      var href = responsiveImage(element.getAttribute('dwl'))
       element.setAttribute('href', href)
       element.removeAttribute('dwl')
     })
