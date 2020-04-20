@@ -71,9 +71,20 @@ export function backgroundLazyLoad (
             + (testWebPSupport() && block.getAttribute(attribute+'-webp'+'_' + window.location.hash.substring(1)) ? '-webp' : '')
             + '_' + window.location.hash.substring(1)
       )
+      var srcset = block.getAttribute(
+        attribute + '_' + window.location.hash.substring(1)
+      )
       block.removeAttribute(
         attribute + '_' + window.location.hash.substring(1)
       )
+
+      if (block.querySelector('.d-md-none img')) {
+        block.querySelector('.d-md-none source').setAttribute('srcset', responsiveImage(src))
+        block.querySelector('.d-md-none img').setAttribute('srcset', responsiveImage(srcset))
+        block
+          .querySelector('.d-md-none img')
+          .setAttribute('src', src)
+      }
       var bg_color = '' // default color... better than weird color... may implement https://stackoverflow.com/questions/2541481/get-average-color-of-image-via-javascript
     } else {
       var src = testWebPSupport() && block.getAttribute(attribute+'-webp') ? block.getAttribute(attribute+'-webp')
