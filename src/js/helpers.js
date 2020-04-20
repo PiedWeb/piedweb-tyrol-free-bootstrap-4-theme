@@ -217,8 +217,9 @@ export async function convertInLinksFromRot13 (attribute = 'data-rot') {
   var convertInLinkFromRot13 = function (element) {
     // fix "bug" with img
     if (element.getAttribute(attribute) === null) {
-      var element = element.closest('['+attribute+']'); //var element = element.parentNode
+      var element = element.closest('[' + attribute + ']')
     }
+    if (element.getAttribute(attribute) === null) return
     var link = document.createElement('a')
     var href = element.getAttribute(attribute)
     element.removeAttribute(attribute)
@@ -242,7 +243,7 @@ export async function convertInLinksFromRot13 (attribute = 'data-rot') {
     })
   }
 
-  var fireEventLinksBuilt = async function(element, event) {
+  var fireEventLinksBuilt = async function (element, event) {
     await document.dispatchEvent(new Event('linksBuilt'))
 
     var clickEvent = new Event(event.type)
@@ -253,11 +254,11 @@ export async function convertInLinksFromRot13 (attribute = 'data-rot') {
     // convert them all if it's an image (thanks this bug), permit to use gallery (baguetteBox)
     if (event.target.tagName == 'IMG') {
       await convertThemAll(attribute)
-      var element = event.target;
+      var element = event.target
     } else {
       var element = convertInLinkFromRot13(event.target)
     }
-    fireEventLinksBuilt(element, event);
+    fireEventLinksBuilt(element, event)
   };
 
   [].forEach.call(document.querySelectorAll('[' + attribute + ']'), function (
@@ -287,12 +288,28 @@ export async function convertInLinksFromRot13 (attribute = 'data-rot') {
   })
 }
 
-export function convertInLinksFromRot13OldWay (attribute = 'data-rot') {
-  [].forEach.call(document.querySelectorAll('[' + attribute + ']'), function (
-    element
-  ) {
-    // ...
-  })
+export function convertImageLinkToWebPLink () {
+  var testWebPSupport = function () {
+    var elem = document.createElement('canvas')
+
+    if (elem.getContext && elem.getContext('2d')) {
+      return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0
+    }
+
+    return false
+  }
+
+  var switchToWebP = function () {
+    [].forEach.call(document.querySelectorAll('[dwl]'), function (
+      element
+    ) {
+      var href = element.getAttribute('dwl')
+      element.setAttribute('href', href)
+      element.removeAttribute('dwl')
+    })
+  }
+
+  if (testWebPSupport()) switchToWebP()
 }
 
 /**
@@ -458,4 +475,3 @@ export function readableEmail (selector) {
     }
   })
 }
-

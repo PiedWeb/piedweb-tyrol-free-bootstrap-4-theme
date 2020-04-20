@@ -103,13 +103,6 @@ var devConfig = Object.assign({}, config, {
   }
 })
 
-var prodConfig = Object.assign({}, config, {
-  mode: 'production',
-  output: Object.assign({}, config.output, {
-    filename: 'app.min.js'
-  })
-})
-
 module.exports = [
-  devConfig, prodConfig
+  devConfig
 ]

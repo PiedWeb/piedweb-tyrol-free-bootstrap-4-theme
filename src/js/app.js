@@ -12,6 +12,7 @@ import BootstrapCookieConsent from 'bootstrap-cookie-consent'
 import baguetteBox from 'baguettebox.js'
 
 import Macy from 'macy'
+import '@babel/polyfill'
 
 import {
   fixedNavBar,
@@ -26,6 +27,7 @@ import {
   rot13ToText,
   readableEmail,
   applySmoothScroll,
+  convertImageLinkToWebPLink,
   addAClassOnScroll,
   allClickable
 } from './helpers.js'
@@ -85,6 +87,7 @@ function applyOnDomLoaded () {
 
 function applyOnDomChanged () {
   gallery()
+  convertImageLinkToWebPLink()
 }
 
 document.addEventListener('linksBuilt', applyOnDomChanged)
