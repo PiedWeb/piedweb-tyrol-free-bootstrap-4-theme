@@ -67,7 +67,9 @@ export function backgroundLazyLoad (
       block.getAttribute(attribute + '_' + window.location.hash.substring(1))
     ) {
       var src = block.getAttribute(
-        attribute + '_' + window.location.hash.substring(1)
+        attribute
+            + (testWebPSupport() && block.getAttribute(attribute+'-webp'+'_' + window.location.hash.substring(1)) ? '-webp' : '')
+            + '_' + window.location.hash.substring(1)
       )
       block.removeAttribute(
         attribute + '_' + window.location.hash.substring(1)
@@ -81,7 +83,8 @@ export function backgroundLazyLoad (
       }
       var bg_color = '' // default color... better than weird color... may implement https://stackoverflow.com/questions/2541481/get-average-color-of-image-via-javascript
     } else {
-      var src = block.getAttribute(attribute) // block.dataset.bg;
+      var src = testWebPSupport() && block.getAttribute(attribute+'-webp') ? block.getAttribute(attribute+'-webp')
+        : block.getAttribute(attribute) // block.dataset.bg;
       var bg_color = block.style.backgroundColor
         ? rgb2hex(block.style.backgroundColor)
         : ''
@@ -288,8 +291,8 @@ export async function convertInLinksFromRot13 (attribute = 'data-rot') {
   })
 }
 
-export function convertImageLinkToWebPLink () {
-  var testWebPSupport = function () {
+export function testWebPSupport()
+{
     var elem = document.createElement('canvas')
 
     if (elem.getContext && elem.getContext('2d')) {
@@ -297,8 +300,9 @@ export function convertImageLinkToWebPLink () {
     }
 
     return false
-  }
+}
 
+export function convertImageLinkToWebPLink () {
   var switchToWebP = function () {
     [].forEach.call(document.querySelectorAll('a[dwl]'), function (
       element

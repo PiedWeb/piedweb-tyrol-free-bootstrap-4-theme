@@ -61,11 +61,11 @@ var gallery = function () {
   })
 }
 
-function applyOnDomLoaded () {
+async function applyOnDomLoaded () {
+  await backgroundLazyLoad()
   fixedNavBar()
   allClickable('.clickable')
   readableEmail('.cea')
-  backgroundLazyLoad()
   imgLazyLoad()
   convertInLinks()
   convertInLinksFromRot13()
