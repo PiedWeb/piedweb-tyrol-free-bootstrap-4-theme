@@ -300,7 +300,7 @@ export function convertImageLinkToWebPLink () {
   }
 
   var switchToWebP = function () {
-    [].forEach.call(document.querySelectorAll('[dwl]'), function (
+    [].forEach.call(document.querySelectorAll('a[dwl]'), function (
       element
     ) {
       var href = element.getAttribute('dwl')
