@@ -1,3 +1,36 @@
 .mimg img {
-    @include img-fluid();
+  @include img-fluid();
+}
+
+
+
+.ehg {
+    @include media-breakpoint-down(xs) {
+        max-width: 440px;
+        margin-right:auto;
+        margin-left:auto;
+    }
+    @include media-breakpoint-up(xs) {
+        justify-content: center!important;
+    }
+  .ehgi {
+    max-width: 440px;
+    padding: 0.5rem !important;
+    @include media-breakpoint-up(sm) {
+      height:160px;
+      width:auto;
+      max-width:100%;
+    }
+    @include media-breakpoint-up(md) {
+      height:200px;
+      width:auto;
+      max-width:100%;
+    }
+    @include media-breakpoint-up(lg) {
+      height:250px;
+    }
+    @include media-breakpoint-up(xl) {
+      height:300px;
+    }
+  }
 }
