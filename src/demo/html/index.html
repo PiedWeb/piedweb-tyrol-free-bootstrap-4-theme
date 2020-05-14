@@ -9,7 +9,27 @@
     </head>
     <body>
 
-    ${require('./_navbar.html')}
+    
+    <header id="navbar">
+        <nav class="navbar navbar-expand-lg w-100">
+                <a class="navbar-brand float-left" href="index.html">Pied Web</a>
+                <label class="hamburger float-right" for=toggler>
+                  <span>Show Menu</span>
+                </label>
+                <input type="checkbox" id="toggler">
+                <div class="navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="elements.html#test">BS Elements</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#footer">SmoothScroll</a></li>
+                        <li class="nav-item"><a class="nav-link disabled" href="#footer">disabled</a></li>
+                    </ul>
+                </div>
+        </nav>
+    </header>
+    <div class=next-navbar></div>
+
+    
 
     <!-- Hero Banner -->
     <section class="hero-banner">
@@ -109,7 +129,3 @@
             </ul>
         </div>
     </div>
-
-    ${require('./_footer.html')}
-
-    ${require('./_extra-footer.html')}

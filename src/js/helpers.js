@@ -1,32 +1,25 @@
 /**
  * List of all functions
  * - fixedNavBar()                       Add css class fixed-top to navbar
- * - imgLazyLoad(attribute)              Simple Image Lazy Loader
  * - backgroundLazyLoad(attribute, ...)  Add background to element wich have `attribute` (default data-bg)
- * - convertInLinks(attribute)           Convert elements wich contain attribute in normal link (a href)
- * - decodeToLink(attribute)             Convert elements wich contain attribute in rot13 in normal link (a href)
- * - convertInLinksFromRot13(attribute)  Convert elements wich contain attribute encoded in rot13 in normal link (href)
  * - clickable(element)                  transform an element containing a link (a href) in a clickable element
  * - allClickable(selector)              transform all selected element in clickable element
  * - resizeWithScreenHeight(selector)
  * - wideImgCentered(selector)           center img used like background image
  * - smoothScroll(element)               Add a smooth effect during the scroll (not compatible with IE)
- * - rot13ToText(str)                    Decode rot13
- * - readableEmail(selector)             Transform an email encoded with rot13 in a readable mail (and add mailto:)
  * - applySmoothScroll()                 Add smoothscrolleffect on link in the dom wich are hash links
  * - addAClassOnScroll(selector,
  *                  classToAdd, delay)   Add a class on Scroll and remove it when it's in default position
- *  - convertFormFromRot13(attr)        Convert action attr encoded in rot 13 to normal action with attr `data-frot`
  */
 
 // todo: how to set responsiveImage optionnal ?
-import { responsiveImage } from 'piedweb-cms-js-helpers/src/helpers.js'
+import { testWebPSupport } from 'piedweb-cms-js-helpers/src/helpers.js'
 
 export function fixedNavBar () {
   var navbar = document.getElementById('navbar')
 
   if (navbar && navbar.children[0]) {
-    navbar.children[0].classList.add('fixed-top')
+    navbar.children[0].classList.add('fixed-top') 
   }
 }
 
@@ -39,6 +32,7 @@ export function fixedNavBar () {
  * @param {array}   darken      default : linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) )
  */
 export function backgroundLazyLoad (
+  applyOnImageSrc = function (src) { return src; },
   attribute = 'data-bg',
   overlay = 'data-darken',
   position = 'data-pos',
@@ -79,8 +73,8 @@ export function backgroundLazyLoad (
       )
 
       if (block.querySelector('.d-md-none img')) {
-        block.querySelector('.d-md-none source').setAttribute('srcset', responsiveImage(src))
-        block.querySelector('.d-md-none img').setAttribute('srcset', responsiveImage(srcset))
+        block.querySelector('.d-md-none source').setAttribute('srcset', applyOnImageSrc(src))
+        block.querySelector('.d-md-none img').setAttribute('srcset', applyOnImageSrc(srcset))
         block
           .querySelector('.d-md-none img')
           .setAttribute('src', src)
@@ -94,7 +88,7 @@ export function backgroundLazyLoad (
         : ''
     }
 
-    var bg_src = bg_color + " url('" + responsiveImage(src) + "')"
+    var bg_src = bg_color + " url('" + applyOnImageSrc(src) + "')"
 
     if (block.getAttribute(overlay)) {
       if (darken[block.getAttribute(overlay)] != undefined) {
@@ -124,41 +118,6 @@ export function backgroundLazyLoad (
 }
 
 /**
- * Simple Image Lazy Loader
- * original from : https://davidwalsh.name/lazyload-image-fade
- *
- * @param {string}  attribute
- *
- * @example
- * imgLazyLoad()
- * <span data-img=/img/me.png>Tagada</span> or <img data-img=/img/me.png alt=Tagada>
- *
- * will be converted to
- *
- * <img src=/img/me.png alt=Tagada />
- */
-export function imgLazyLoad (attribute = 'data-img') {
-  [].forEach.call(document.querySelectorAll('[' + attribute + ']'), function (
-    img
-  ) {
-    var newDomImg = document.createElement('img')
-    var src = img.getAttribute(attribute)
-    img.removeAttribute(attribute)
-    for (var i = 0, n = img.attributes.length; i < n; i++) {
-      newDomImg.setAttribute(
-        img.attributes[i].nodeName,
-        img.attributes[i].nodeValue
-      )
-    }
-    if (newDomImg.getAttribute('alt') === null && img.textContent != '') {
-      newDomImg.setAttribute('alt', img.textContent)
-    }
-    newDomImg.setAttribute('src', responsiveImage(src))
-    img.outerHTML = newDomImg.outerHTML
-  })
-}
-
-/**
  * Add a class on Scroll and remove it when it's in default position
  *
  * @param {string}  selector    the selector wich give us the object to modify
@@ -181,174 +140,6 @@ export function addAClassOnScroll (selector, classToAdd, delay = 10) {
       }
     }
   }
-}
-
-/**
- * Convert elements wich contain attribute in normal link (a href)
- * Except for old Browser (like google bot)
- *
- * @param {string}  attribute
- *
- * @example
- * convertInLinks()
- * <span data-href=/img/me.png>Tagada</span> => <a href="/img/me.png">Tagada</a>
- */
-export function convertInLinks (attribute = 'data-href') {
-  [].forEach.call(document.querySelectorAll('[' + attribute + ']'), function (
-    element
-  ) {
-    var link = document.createElement('a')
-    var href = element.getAttribute(attribute)
-    element.removeAttribute(attribute)
-    for (var i = 0, n = element.attributes.length; i < n; i++) {
-      link.setAttribute(
-        element.attributes[i].nodeName,
-        element.attributes[i].nodeValue
-      )
-    }
-    link.textContent = element.textContent
-    link.setAttribute('href', href)
-    element.outerHTML = link.outerHTML
-  })
-}
-
-/**
- * Convert elements wich contain attribute encoded in rot13 in normal link (a href)
- * first character can be a shortcut for http:// (-), https:// (_), mailto: (@)
- * Except for old Browser (like google bot)
- *
- * @param {string}  attribute
- */
-
-export async function convertInLinksFromRot13 (attribute = 'data-rot') {
-  var convertInLinkFromRot13 = function (element) {
-    // fix "bug" with img
-    if (element.getAttribute(attribute) === null) {
-      var element = element.closest('[' + attribute + ']')
-    }
-    if (element.getAttribute(attribute) === null) return
-    var link = document.createElement('a')
-    var href = element.getAttribute(attribute)
-    element.removeAttribute(attribute)
-    for (var i = 0, n = element.attributes.length; i < n; i++) {
-      link.setAttribute(
-        element.attributes[i].nodeName,
-        element.attributes[i].nodeValue
-      )
-    }
-    link.innerHTML = element.innerHTML
-    link.setAttribute('href', responsiveImage(convertShortchutForLink(rot13ToText(href))))
-    element.parentNode.replaceChild(link, element)
-    return link
-  }
-
-  var convertThemAll = function (attribute) {
-    [].forEach.call(document.querySelectorAll('[' + attribute + ']'), function (
-      element
-    ) {
-      convertInLinkFromRot13(element)
-    })
-  }
-
-  var fireEventLinksBuilt = async function (element, event) {
-    await document.dispatchEvent(new Event('linksBuilt'))
-
-    var clickEvent = new Event(event.type)
-    element.dispatchEvent(clickEvent)
-  }
-
-  var convertInLinksRot13OnFly = async function (event) {
-    // convert them all if it's an image (thanks this bug), permit to use gallery (baguetteBox)
-    if (event.target.tagName == 'IMG') {
-      await convertThemAll(attribute)
-      var element = event.target
-    } else {
-      var element = convertInLinkFromRot13(event.target)
-    }
-    fireEventLinksBuilt(element, event)
-  };
-
-  [].forEach.call(document.querySelectorAll('[' + attribute + ']'), function (
-    element
-  ) {
-    element.addEventListener(
-      'touchstart',
-      function (e) {
-        convertInLinksRot13OnFly(e)
-      },
-      { once: true }
-    )
-    element.addEventListener(
-      'click',
-      function (e) {
-        convertInLinksRot13OnFly(e)
-      },
-      { once: true }
-    )
-    element.addEventListener(
-      'mouseover',
-      function (e) {
-        convertInLinksRot13OnFly(e)
-      },
-      { once: true }
-    )
-  })
-}
-
-export function testWebPSupport()
-{
-    var elem = document.createElement('canvas')
-
-    if (elem.getContext && elem.getContext('2d')) {
-      return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0
-    }
-
-    return false
-}
-
-export function convertImageLinkToWebPLink () {
-  var switchToWebP = function () {
-    [].forEach.call(document.querySelectorAll('a[dwl]'), function (
-      element
-    ) {
-      var href = responsiveImage(element.getAttribute('dwl'))
-      element.setAttribute('href', href)
-      element.removeAttribute('dwl')
-    })
-  }
-
-  if (testWebPSupport()) switchToWebP()
-}
-
-/**
- * Convert action attr encoded in rot 13 to normal action with default attr `data-frot`
- *
- * @param {string}  attribute
- */
-export function convertFormFromRot13 (attribute = 'data-frot') {
-  [].forEach.call(document.querySelectorAll('[' + attribute + ']'), function (
-    element
-  ) {
-    var action = element.getAttribute(attribute)
-    element.removeAttribute(attribute)
-    element.setAttribute(
-      'action',
-      convertShortchutForLink(rot13ToText(action))
-    )
-  })
-}
-
-export function convertShortchutForLink (str) {
-  if (str.charAt(0) == '-') {
-    return str.replace('-', 'http://')
-  }
-  if (str.charAt(0) == '_') {
-    return str.replace('_', 'https://')
-  }
-  if (str.charAt(0) == '@') {
-    return str.replace('@', 'mailto:')
-  }
-  return str
 }
 
 /**
@@ -456,30 +247,3 @@ export function applySmoothScroll () {
   })
 }
 
-/**
- * Decode rot13
- *
- * @param {string}  str
- */
-export function rot13ToText (str) {
-  return str.replace(/[a-zA-Z]/g, function (c) {
-    return String.fromCharCode(
-      (c <= 'Z' ? 90 : 122) >= (c = c.charCodeAt(0) + 13) ? c : c - 26
-    )
-  })
-}
-
-/**
- * readableEmail(selector) Transform an email encoded with rot13 in a readable mail (and add mailto:)
- *
- * @param {string}  text
- */
-export function readableEmail (selector) {
-  document.querySelectorAll(selector).forEach(function (item) {
-    var mail = rot13ToText(item.textContent)
-    item.innerHTML = '<a href="mailto:' + mail + '">' + mail + '</a>'
-    if (selector.charAt(0) == '.') {
-      item.classList.remove(selector.substring(1))
-    }
-  })
-}

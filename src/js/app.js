@@ -16,18 +16,12 @@ import '@babel/polyfill'
 
 import {
   fixedNavBar,
-  imgLazyLoad,
   backgroundLazyLoad,
-  convertInLinks,
-  convertInLinksFromRot13,
   clickable,
   resizeWithScreenHeight,
   wideImgCentered,
   smoothScroll,
-  rot13ToText,
-  readableEmail,
   applySmoothScroll,
-  convertImageLinkToWebPLink,
   addAClassOnScroll,
   allClickable
 } from './helpers.js'
@@ -65,10 +59,6 @@ async function applyOnDomLoaded () {
   await backgroundLazyLoad()
   fixedNavBar()
   allClickable('.clickable')
-  readableEmail('.cea')
-  imgLazyLoad()
-  convertInLinks()
-  convertInLinksFromRot13()
   applySmoothScroll()
   gallery()
   var masonry = new Macy({
@@ -87,7 +77,6 @@ async function applyOnDomLoaded () {
 
 function applyOnDomChanged () {
   gallery()
-  convertImageLinkToWebPLink()
 }
 
 document.addEventListener('linksBuilt', applyOnDomChanged)

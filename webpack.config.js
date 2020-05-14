@@ -58,10 +58,7 @@ const config = {
     {
       test: /.html$/,
       use: {
-        loader: 'html-loader',
-        options: {
-          interpolate: true
-        }
+        loader: 'html-loader'
       }
     },
     {
