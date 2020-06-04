@@ -28,7 +28,7 @@ import {
 
 require('../scss/main.scss');
 
-var bsn = require('bootstrap.native/dist/bootstrap-native-v4');
+var bsn = require('bootstrap.native/dist/bootstrap-native');
 
 document.addEventListener('DOMContentLoaded', function () {
   applyOnDomLoaded();
