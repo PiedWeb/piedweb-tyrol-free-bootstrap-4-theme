@@ -1,37 +1,36 @@
 //
 // =Constants
 // --------------------------------------------------
-@import "theme/variables";
+@import 'theme/variables';
 
 //
 // =Bootstrap
 // --------------------------------------------------
-@import "custom-bootstrap";
+@import 'custom-bootstrap';
 
 //
 // =Plugins
 // --------------------------------------------------
-@import "~baguettebox.js/dist/baguetteBox.min.css";
+@import '~baguettebox.js/dist/baguetteBox.min.css';
 
 /**/
-$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
-@import "./node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
-@import "./node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+@import './node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import './node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
 /**/
 
 //
 // =Global
 // --------------------------------------------------
-@import "theme/init";
-@import "theme/spacer";
+@import 'theme/init';
 
 //
 // =Block
 // --------------------------------------------------
 
-@import "theme/gallery";
-@import "theme/footer";
-@import "theme/hero-banner";
-@import "theme/cookie-rgpd";
-@import "theme/masonry";
-@import "theme/hamburger";
+@import 'theme/gallery';
+@import 'theme/footer';
+@import 'theme/hero-banner';
+@import 'theme/cookie-rgpd';
+@import 'theme/masonry';
+@import 'theme/hamburger';

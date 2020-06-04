@@ -7,12 +7,12 @@
  * Import CSS
  */
 
-import BootstrapCookieConsent from 'bootstrap-cookie-consent'
+import BootstrapCookieConsent from 'bootstrap-cookie-consent';
 
-import baguetteBox from 'baguettebox.js'
+import baguetteBox from 'baguettebox.js';
 
-import Macy from 'macy'
-import '@babel/polyfill'
+import Macy from 'macy';
+import '@babel/polyfill';
 
 import {
   fixedNavBar,
@@ -23,63 +23,63 @@ import {
   smoothScroll,
   applySmoothScroll,
   addAClassOnScroll,
-  allClickable
-} from './helpers.js'
+  allClickable,
+} from './helpers.js';
 
-require('../scss/main.scss')
+require('../scss/main.scss');
 
-var bsn = require('bootstrap.native/dist/bootstrap-native-v4')
+var bsn = require('bootstrap.native/dist/bootstrap-native-v4');
 
 document.addEventListener('DOMContentLoaded', function () {
-  applyOnDomLoaded()
+  applyOnDomLoaded();
   /**/
   new BootstrapCookieConsent({
     services: ['StatistiquesAnonymes', 'YouTube'],
     services_descr: {
       StatistiquesAnonymes:
         "Nous permet d'améliorer le site en fonction de son utilisation",
-      YouTube: 'Affiche les vidéos du service youtube.com'
+      YouTube: 'Affiche les vidéos du service youtube.com',
     },
-    method: 'bsn'
-  })
+    method: 'bsn',
+  });
   /**/
 
-  addAClassOnScroll('.navbar', 'nostick', 50)
-})
+  addAClassOnScroll('.navbar', 'nostick', 50);
+});
 
 var gallery = function () {
   baguetteBox.run('.mimg', {
     captions: function (element) {
-      return element.getElementsByTagName('img')[0].alt
-    }
-  })
-}
+      return element.getElementsByTagName('img')[0].alt;
+    },
+  });
+};
 
-async function applyOnDomLoaded () {
-  await backgroundLazyLoad()
-  fixedNavBar()
-  allClickable('.clickable')
-  applySmoothScroll()
-  gallery()
+async function applyOnDomLoaded() {
+  await backgroundLazyLoad();
+  fixedNavBar();
+  allClickable('.clickable');
+  applySmoothScroll();
+  gallery();
   var masonry = new Macy({
     container: '#flex-masonry',
     columns: 3,
     margin: {
       y: 16,
-      x: '2%'
+      x: '2%',
     },
     breakAt: {
       992: 2,
-      768: 1
-    }
-  })
+      768: 1,
+    },
+  });
 }
 
-function applyOnDomChanged () {
-  gallery()
+function applyOnDomChanged() {
+  gallery();
 }
 
-document.addEventListener('linksBuilt', applyOnDomChanged)
+document.addEventListener('linksBuilt', applyOnDomChanged);
 
 // var observer = new MutationObserver(applyOnDomChanged)
 // observer.observe(document.body, { attributes: true, childList: true, subtree: true })
